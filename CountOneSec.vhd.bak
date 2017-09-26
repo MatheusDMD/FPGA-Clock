@@ -1,0 +1,28 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity CountOneSec is
+   port(
+ 	 Clock: in std_logic;
+ 	 reset: in std_logic;
+ 	 output: out std_logic_vector(0 to 26));
+end CountOneSec;
+ 
+architecture CountOneSec_behaviour of CountOneSec is
+   signal temp: std_logic_vector(0 to 26);
+begin   process(Clock,Reset)
+   begin
+      if reset='1' then
+         temp <= "00000000000000000000000000";
+      elsif(rising_edge(Clock)) then
+            if temp="10111110101111000010000000" then
+               temp<="00000000000000000000000000";
+            else
+               temp <= temp + 1;
+            end if;
+         end if;
+   end process;
+   output <= temp;
+end CountOneSec_behaviour;

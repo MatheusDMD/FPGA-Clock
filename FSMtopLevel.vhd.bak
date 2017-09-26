@@ -1,0 +1,30 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity FSMtopLevel is
+	port (
+			  -- Entradas (nomenclatura definida no arquivo ¨.qsf¨)
+			  CLOCK_50 : in STD_LOGIC;
+			  KEY: in STD_LOGIC_VECTOR(3 DOWNTO 0);   --chaves de contato momentaneo.
+	--      SW: in STD_LOGIC_VECTOR(17 DOWNTO 0);    --chaves liga/desliga.
+
+			  -- Saidas da placa (nomenclatura definida no arquivo ¨.qsf¨)
+			  LEDR : out STD_LOGIC_VECTOR(17 DOWNTO 0) := (others => '0');
+			  LEDG : out STD_LOGIC_VECTOR(8 DOWNTO 0)  := (others => '0');
+			  HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+		 );
+end entity;
+
+
+architecture FSMtopLevel_architecture of FSMtopLevel is
+    -- Declaraçao dos Componentes:
+    COMPONENT testeFSM is
+        PORT (
+            reset       :    IN STD_LOGIC;
+            clock       :    IN STD_LOGIC;
+            set     		:    IN STD_LOGIC;
+            h_m     		:    IN STD_LOGIC;
+            saida   		:    OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+        );
+    END COMPONENT;
+

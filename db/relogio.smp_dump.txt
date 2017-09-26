@@ -1,0 +1,6 @@
+
+State Machine - |relogio|fstate
+Name fstate.state2 fstate.state1 fstate.horario 
+fstate.horario 0 0 0 
+fstate.state1 0 1 1 
+fstate.state2 1 0 1 
