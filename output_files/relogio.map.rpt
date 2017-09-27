@@ -1,5 +1,5 @@
 Analysis & Synthesis report for relogio
-Tue Sep 26 16:24:03 2017
+Wed Sep 27 17:08:15 2017
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -15,15 +15,32 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
   9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: registrador:regSegundos
- 11. Parameter Settings for User Entity Instance: ULA:ULA
- 12. Port Connectivity Checks: "conversorHex7Seg:display0"
- 13. Port Connectivity Checks: "ULA:ULA"
- 14. Port Connectivity Checks: "registrador:regSegundos"
- 15. Port Connectivity Checks: "CountOneSec:counter"
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 10. Parameter Settings for User Entity Instance: tempo:unidade_segundo|registrador:reg
+ 11. Parameter Settings for User Entity Instance: tempo:unidade_segundo|ULA:ULA
+ 12. Parameter Settings for User Entity Instance: tempo:dezena_segundo|registrador:reg
+ 13. Parameter Settings for User Entity Instance: tempo:dezena_segundo|ULA:ULA
+ 14. Parameter Settings for User Entity Instance: tempo:unidade_minuto|registrador:reg
+ 15. Parameter Settings for User Entity Instance: tempo:unidade_minuto|ULA:ULA
+ 16. Parameter Settings for User Entity Instance: tempo:dezena_minuto|registrador:reg
+ 17. Parameter Settings for User Entity Instance: tempo:dezena_minuto|ULA:ULA
+ 18. Parameter Settings for User Entity Instance: tempo:unidade_hora|registrador:reg
+ 19. Parameter Settings for User Entity Instance: tempo:unidade_hora|ULA:ULA
+ 20. Parameter Settings for User Entity Instance: tempo:dezena_hora|registrador:reg
+ 21. Parameter Settings for User Entity Instance: tempo:dezena_hora|ULA:ULA
+ 22. Port Connectivity Checks: "tempo:dezena_hora"
+ 23. Port Connectivity Checks: "tempo:unidade_hora"
+ 24. Port Connectivity Checks: "tempo:dezena_minuto"
+ 25. Port Connectivity Checks: "tempo:unidade_minuto"
+ 26. Port Connectivity Checks: "tempo:dezena_segundo"
+ 27. Port Connectivity Checks: "tempo:unidade_segundo|conversorHex7Seg:display0"
+ 28. Port Connectivity Checks: "tempo:unidade_segundo|mux2:MUX1"
+ 29. Port Connectivity Checks: "tempo:unidade_segundo|ULA:ULA"
+ 30. Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg"
+ 31. Port Connectivity Checks: "tempo:unidade_segundo"
+ 32. Port Connectivity Checks: "CountOneSec:counter"
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
 
 
 
@@ -50,16 +67,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Sep 26 16:24:03 2017       ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 27 17:08:15 2017       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; relogio                                     ;
 ; Top-level Entity Name              ; FSMtopLevel                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 66                                          ;
-;     Total combinational functions  ; 66                                          ;
-;     Dedicated logic registers      ; 31                                          ;
-; Total registers                    ; 31                                          ;
-; Total pins                         ; 39                                          ;
+; Total logic elements               ; 169                                         ;
+;     Total combinational functions  ; 167                                         ;
+;     Dedicated logic registers      ; 54                                          ;
+; Total registers                    ; 54                                          ;
+; Total pins                         ; 88                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -175,11 +192,15 @@ agreement for further details.
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+; xor2.vhd                         ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/xor2.vhd             ;         ;
+; mux2.vhd                         ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/mux2.vhd             ;         ;
 ; CountOneSec.vhd                  ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd      ;         ;
 ; FSMtopLevel.vhd                  ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd      ;         ;
 ; conversorHex7Seg.vhd             ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/conversorHex7Seg.vhd ;         ;
 ; registrador.vhd                  ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/registrador.vhd      ;         ;
 ; ULA.vhd                          ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/ULA.vhd              ;         ;
+; tempo.vhd                        ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd            ;         ;
+; not2.vhd                         ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd             ;         ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
 
 
@@ -188,55 +209,92 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 66             ;
+; Estimated Total logic elements              ; 169            ;
 ;                                             ;                ;
-; Total combinational functions               ; 66             ;
+; Total combinational functions               ; 167            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 15             ;
-;     -- 3 input functions                    ; 8              ;
-;     -- <=2 input functions                  ; 43             ;
+;     -- 4 input functions                    ; 95             ;
+;     -- 3 input functions                    ; 36             ;
+;     -- <=2 input functions                  ; 36             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 38             ;
-;     -- arithmetic mode                      ; 28             ;
+;     -- normal mode                          ; 142            ;
+;     -- arithmetic mode                      ; 25             ;
 ;                                             ;                ;
-; Total registers                             ; 31             ;
-;     -- Dedicated logic registers            ; 31             ;
+; Total registers                             ; 54             ;
+;     -- Dedicated logic registers            ; 54             ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 39             ;
+; I/O pins                                    ; 88             ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 31             ;
-; Total fan-out                               ; 276            ;
-; Average fan-out                             ; 1.58           ;
+; Maximum fan-out                             ; 54             ;
+; Total fan-out                               ; 821            ;
+; Average fan-out                             ; 2.07           ;
 +---------------------------------------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+------------------+--------------+
-; Compilation Hierarchy Node     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name      ; Library Name ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+------------------+--------------+
-; |FSMtopLevel                   ; 66 (0)              ; 31 (0)                    ; 0           ; 0            ; 0       ; 0         ; 39   ; 0            ; |FSMtopLevel                           ; FSMtopLevel      ; work         ;
-;    |CountOneSec:counter|       ; 48 (48)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneSec:counter       ; CountOneSec      ; work         ;
-;    |ULA:ULA|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|ULA:ULA                   ; ULA              ; work         ;
-;    |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|conversorHex7Seg:display0 ; conversorHex7Seg ; work         ;
-;    |registrador:regSegundos|   ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|registrador:regSegundos   ; registrador      ; work         ;
-+--------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------+------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                           ;
++-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name      ; Library Name ;
++-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
+; |FSMtopLevel                      ; 167 (0)             ; 54 (0)                    ; 0           ; 0            ; 0       ; 0         ; 88   ; 0            ; |FSMtopLevel                                                 ; FSMtopLevel      ; work         ;
+;    |CountOneSec:counter|          ; 38 (38)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneSec:counter                             ; CountOneSec      ; work         ;
+;    |tempo:dezena_hora|            ; 23 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora                               ; tempo            ; work         ;
+;       |ULA:ULA|                   ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|ULA:ULA                       ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|conversorHex7Seg:display0     ; conversorHex7Seg ; work         ;
+;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|mux2:MUX1                     ; mux2             ; work         ;
+;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|registrador:reg               ; registrador      ; work         ;
+;       |xor2:XOR1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|xor2:XOR1                     ; xor2             ; work         ;
+;    |tempo:dezena_minuto|          ; 22 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_minuto                             ; tempo            ; work         ;
+;       |ULA:ULA|                   ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_minuto|ULA:ULA                     ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_minuto|conversorHex7Seg:display0   ; conversorHex7Seg ; work         ;
+;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_minuto|mux2:MUX1                   ; mux2             ; work         ;
+;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_minuto|registrador:reg             ; registrador      ; work         ;
+;       |xor2:XOR1|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_minuto|xor2:XOR1                   ; xor2             ; work         ;
+;    |tempo:dezena_segundo|         ; 21 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo                            ; tempo            ; work         ;
+;       |ULA:ULA|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|ULA:ULA                    ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|conversorHex7Seg:display0  ; conversorHex7Seg ; work         ;
+;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|mux2:MUX1                  ; mux2             ; work         ;
+;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|registrador:reg            ; registrador      ; work         ;
+;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|xor2:XOR1                  ; xor2             ; work         ;
+;    |tempo:unidade_hora|           ; 22 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_hora                              ; tempo            ; work         ;
+;       |ULA:ULA|                   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_hora|ULA:ULA                      ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_hora|conversorHex7Seg:display0    ; conversorHex7Seg ; work         ;
+;       |mux2:MUX1|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_hora|mux2:MUX1                    ; mux2             ; work         ;
+;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_hora|registrador:reg              ; registrador      ; work         ;
+;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_hora|xor2:XOR1                    ; xor2             ; work         ;
+;    |tempo:unidade_minuto|         ; 21 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_minuto                            ; tempo            ; work         ;
+;       |ULA:ULA|                   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_minuto|ULA:ULA                    ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_minuto|conversorHex7Seg:display0  ; conversorHex7Seg ; work         ;
+;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_minuto|mux2:MUX1                  ; mux2             ; work         ;
+;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_minuto|registrador:reg            ; registrador      ; work         ;
+;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_minuto|xor2:XOR1                  ; xor2             ; work         ;
+;    |tempo:unidade_segundo|        ; 20 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo                           ; tempo            ; work         ;
+;       |ULA:ULA|                   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|ULA:ULA                   ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|conversorHex7Seg:display0 ; conversorHex7Seg ; work         ;
+;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|mux2:MUX1                 ; mux2             ; work         ;
+;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|registrador:reg           ; registrador      ; work         ;
+;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|xor2:XOR1                 ; xor2             ; work         ;
++-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; CountOneSec:counter|output[1..3]      ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 3 ;                                        ;
-+---------------------------------------+----------------------------------------+
++----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                 ;
++-----------------------------------------------------+----------------------------------------------+
+; Register name                                       ; Reason for Removal                           ;
++-----------------------------------------------------+----------------------------------------------+
+; CountOneSec:counter|division[1,7,9,14,15,20,22..25] ; Stuck at GND due to stuck port data_in       ;
+; CountOneSec:counter|output[1..3]                    ; Stuck at GND due to stuck port data_in       ;
+; CountOneSec:counter|division[11]                    ; Merged with CountOneSec:counter|division[10] ;
+; CountOneSec:counter|division[2..6,8,12,13,18]       ; Merged with CountOneSec:counter|division[0]  ;
+; CountOneSec:counter|division[17,19,21]              ; Merged with CountOneSec:counter|division[16] ;
+; Total Number of Removed Registers = 26              ;                                              ;
++-----------------------------------------------------+----------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -244,8 +302,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 31    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 54    ;
+; Number of registers using Synchronous Clear  ; 26    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -254,53 +312,233 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: registrador:regSegundos ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; larguradados   ; 4     ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:unidade_segundo|registrador:reg ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ULA:ULA ;
-+----------------+-------+-----------------------------+
-; Parameter Name ; Value ; Type                        ;
-+----------------+-------+-----------------------------+
-; larguradados   ; 4     ; Signed Integer              ;
-+----------------+-------+-----------------------------+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:unidade_segundo|ULA:ULA ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "conversorHex7Seg:display0" ;
-+----------+-------+----------+-------------------------+
-; Port     ; Type  ; Severity ; Details                 ;
-+----------+-------+----------+-------------------------+
-; negativo ; Input ; Info     ; Stuck at GND            ;
-; overflow ; Input ; Info     ; Stuck at GND            ;
-+----------+-------+----------+-------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:dezena_segundo|registrador:reg ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------+
-; Port Connectivity Checks: "ULA:ULA"    ;
-+------+-------+----------+--------------+
-; Port ; Type  ; Severity ; Details      ;
-+------+-------+----------+--------------+
-; sel  ; Input ; Info     ; Stuck at GND ;
-+------+-------+----------+--------------+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:dezena_segundo|ULA:ULA ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------+
-; Port Connectivity Checks: "registrador:regSegundos" ;
-+--------+-------+----------+-------------------------+
-; Port   ; Type  ; Severity ; Details                 ;
-+--------+-------+----------+-------------------------+
-; enable ; Input ; Info     ; Stuck at VCC            ;
-; rst    ; Input ; Info     ; Stuck at GND            ;
-+--------+-------+----------+-------------------------+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:unidade_minuto|registrador:reg ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:unidade_minuto|ULA:ULA ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:dezena_minuto|registrador:reg ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:dezena_minuto|ULA:ULA ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:unidade_hora|registrador:reg ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:unidade_hora|ULA:ULA ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:dezena_hora|registrador:reg ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo:dezena_hora|ULA:ULA ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:dezena_hora"                                                                      ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[1..0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[3..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; s        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_hora"                                                                  ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:dezena_minuto"                                                                    ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[2..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[3]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_minuto"                                                                ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[3] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[2] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:dezena_segundo"                                                                   ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[2..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[3]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_segundo|conversorHex7Seg:display0" ;
++----------+-------+----------+-----------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                       ;
++----------+-------+----------+-----------------------------------------------+
+; negativo ; Input ; Info     ; Stuck at GND                                  ;
+; overflow ; Input ; Info     ; Stuck at GND                                  ;
++----------+-------+----------+-----------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_segundo|mux2:MUX1" ;
++------+-------+----------+-----------------------------------+
+; Port ; Type  ; Severity ; Details                           ;
++------+-------+----------+-----------------------------------+
+; b    ; Input ; Info     ; Stuck at GND                      ;
++------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_segundo|ULA:ULA" ;
++------+-------+----------+---------------------------------+
+; Port ; Type  ; Severity ; Details                         ;
++------+-------+----------+---------------------------------+
+; sel  ; Input ; Info     ; Stuck at GND                    ;
++------+-------+----------+---------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg" ;
++--------+-------+----------+---------------------------------------+
+; Port   ; Type  ; Severity ; Details                               ;
++--------+-------+----------+---------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                          ;
+; rst    ; Input ; Info     ; Stuck at GND                          ;
++--------+-------+----------+---------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_segundo"                                                               ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[3] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[2] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------+
@@ -317,22 +555,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 39                          ;
-; cycloneiii_ff         ; 31                          ;
-;     plain             ; 31                          ;
-; cycloneiii_lcell_comb ; 67                          ;
-;     arith             ; 28                          ;
-;         2 data inputs ; 27                          ;
-;         3 data inputs ; 1                           ;
-;     normal            ; 39                          ;
+; boundary_port         ; 88                          ;
+; cycloneiii_ff         ; 54                          ;
+;     SCLR              ; 26                          ;
+;     plain             ; 28                          ;
+; cycloneiii_lcell_comb ; 168                         ;
+;     arith             ; 25                          ;
+;         2 data inputs ; 25                          ;
+;     normal            ; 143                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
-;         2 data inputs ; 14                          ;
-;         3 data inputs ; 7                           ;
-;         4 data inputs ; 15                          ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 95                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.50                        ;
-; Average LUT depth     ; 3.37                        ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 4.69                        ;
 +-----------------------+-----------------------------+
 
 
@@ -351,35 +589,54 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Sep 26 16:23:46 2017
+    Info: Processing started: Wed Sep 27 17:07:58 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off relogio -c relogio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file xor2.vhd
+    Info (12022): Found design unit 1: xor2-Behavioral File: /home/matheus/Documents/ProjetoDesignComputadores/xor2.vhd Line: 11
+    Info (12023): Found entity 1: xor2 File: /home/matheus/Documents/ProjetoDesignComputadores/xor2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux2.vhd
+    Info (12022): Found design unit 1: mux2-Behavioral File: /home/matheus/Documents/ProjetoDesignComputadores/mux2.vhd Line: 11
+    Info (12023): Found entity 1: mux2 File: /home/matheus/Documents/ProjetoDesignComputadores/mux2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file SM1.vhd
+    Info (12022): Found design unit 1: relogio-BEHAVIOR File: /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd Line: 32
+    Info (12023): Found entity 1: relogio File: /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file CountOneSec.vhd
-    Info (12022): Found design unit 1: CountOneSec-CountOneSec_behaviour File: /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd Line: 13
+    Info (12022): Found design unit 1: CountOneSec-CountOneSec_behaviour File: /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd Line: 14
     Info (12023): Found entity 1: CountOneSec File: /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file FSMtopLevel.vhd
     Info (12022): Found design unit 1: FSMtopLevel-FSMtopLevel_architecture File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 20
     Info (12023): Found entity 1: FSMtopLevel File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 5
-Warning (12019): Can't analyze file -- file fluxo.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file conversorHex7Seg.vhd
     Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: /home/matheus/Documents/ProjetoDesignComputadores/conversorHex7Seg.vhd Line: 18
     Info (12023): Found entity 1: conversorHex7Seg File: /home/matheus/Documents/ProjetoDesignComputadores/conversorHex7Seg.vhd Line: 5
 Warning (12019): Can't analyze file -- file edgeDetector.vhd is missing
-Warning (12019): Can't analyze file -- file testeFSM.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
     Info (12022): Found design unit 1: registrador-comportamento File: /home/matheus/Documents/ProjetoDesignComputadores/registrador.vhd Line: 14
     Info (12023): Found entity 1: registrador File: /home/matheus/Documents/ProjetoDesignComputadores/registrador.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ULA.vhd
     Info (12022): Found design unit 1: ULA-comportamento File: /home/matheus/Documents/ProjetoDesignComputadores/ULA.vhd Line: 17
     Info (12023): Found entity 1: ULA File: /home/matheus/Documents/ProjetoDesignComputadores/ULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file tempo.vhd
+    Info (12022): Found design unit 1: tempo-tempo_architecture File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 17
+    Info (12023): Found entity 1: tempo File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file not2.vhd
+    Info (12022): Found design unit 1: not2-func File: /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd Line: 11
+    Info (12023): Found entity 1: not2 File: /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd Line: 5
 Info (12127): Elaborating entity "FSMtopLevel" for the top level hierarchy
 Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(13): used explicit default value for signal "LEDR" because signal was never assigned a value File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
 Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(14): used explicit default value for signal "LEDG" because signal was never assigned a value File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
-Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 24
-Info (12128): Elaborating entity "registrador" for hierarchy "registrador:regSegundos" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 26
-Info (12128): Elaborating entity "ULA" for hierarchy "ULA:ULA" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 29
-Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:display0" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 32
+Warning (10036): Verilog HDL or VHDL warning at FSMtopLevel.vhd(21): object "output_dh" assigned a value but never read File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 21
+Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 23
+Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 25
+Info (12128): Elaborating entity "registrador" for hierarchy "tempo:unidade_segundo|registrador:reg" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 21
+Info (12128): Elaborating entity "ULA" for hierarchy "tempo:unidade_segundo|ULA:ULA" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 24
+Info (12128): Elaborating entity "xor2" for hierarchy "tempo:unidade_segundo|xor2:XOR1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 27
+Info (12128): Elaborating entity "mux2" for hierarchy "tempo:unidade_segundo|mux2:MUX1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 29
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "tempo:unidade_segundo|conversorHex7Seg:display0" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 31
+Info (12128): Elaborating entity "not2" for hierarchy "tempo:unidade_segundo|not2:saida" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 33
+Warning (10873): Using initial value X (don't care) for net "X[3..1]" at not2.vhd(7) File: /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd Line: 7
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
@@ -411,18 +668,31 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 4 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[0]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
-    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
-    Warning (15610): No output dependent on input pin "KEY[2]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
-    Warning (15610): No output dependent on input pin "KEY[3]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
-Info (21057): Implemented 107 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 34 output pins
-    Info (21061): Implemented 68 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
-    Info: Peak virtual memory: 976 megabytes
-    Info: Processing ended: Tue Sep 26 16:24:03 2017
+Warning (21074): Design contains 17 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[1]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[2]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[3]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[4]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[5]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[6]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[7]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[8]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[9]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[10]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[11]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[12]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[13]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[14]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[15]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[16]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[17]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
+Info (21057): Implemented 259 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 19 input pins
+    Info (21059): Implemented 69 output pins
+    Info (21061): Implemented 171 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 973 megabytes
+    Info: Processing ended: Wed Sep 27 17:08:15 2017
     Info: Elapsed time: 00:00:17
     Info: Total CPU time (on all processors): 00:00:36
 

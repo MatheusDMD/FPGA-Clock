@@ -1,0 +1,13 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity xor2 is
+    Port ( A1 : in  STD_LOGIC;      -- XOR gate input 1
+           A2 : in  STD_LOGIC;      -- XOR gate input 2
+           X1 : out  STD_LOGIC;     -- XOR gate output
+end xor2;
+
+architecture Behavioral of xor2 is
+begin
+X1 <= A1 xor A2;		-- 2 input exclusive-OR gate
+end Behavioral;

@@ -14,7 +14,7 @@ use IEEE.STD_LOGIC_1164.ALL;
  architecture comportamento of registrador is
  begin
     -- In Altera devices, register signals have a set priority.
-    -- The HDL design should reflect this priority.
+    -- The HDL design should reflect this priority;
     process(RST, CLK)
     begin
         -- The asynchronous reset signal has the highest priority
