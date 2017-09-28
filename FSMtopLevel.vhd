@@ -21,6 +21,7 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 	signal output_us,output_ds,output_um,output_dm,output_uh,output_dh,reg_dh,cv_uh, OUTPUT: std_logic_vector(3 downto 0) := (others=>'0');
 	signal mux_set_out1, mux_set_out2,mux_set_out3,btn_set_output: std_logic_vector(3 downto 0) := (others=>'0');
 	signal control : std_logic_vector(2 downto 0);
+	signal mux_selector,mux_selector2: std_logic;
 	begin
 		
 		SM_relogio : entity work.SM1
@@ -28,10 +29,10 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 		
 		--SET MINUTO
 		mux_set_minuto : entity work.mux1
-				port map (A => output_ds, B => btn_set_output, SEL => control(1), X => mux_set_out1);
+				port map (A => output_ds, B => btn_set_output, SEL => mux_selector, X => mux_set_out1);
 		--SET HORA
 		mux_set_hora : entity work.mux1
-				port map (A => output_dm, B => btn_set_output, SEL => control(2), X => mux_set_out2);
+				port map (A => output_dm, B => btn_set_output, SEL => mux_selector2, X => mux_set_out2);
 		mux_set_hora2 : entity work.mux1
 				port map (A => mux_set_out2, B => (others => '0') , SEL => control(1), X => mux_set_out3);
 		--SET
@@ -40,7 +41,12 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 		--COUNT SECONDS
 		counter : entity work.CountOneSec
 				port map (speed => SW(0),clock => CLOCK_50, reset => '0', output => OUTPUT);
-				
+		--MUX ALARME MODE
+		mux_alarme_mode : entity work.mux0
+				port map (A => control(1), B => btn_set_output(0), SEL => SW(17), X => mux_selector);
+		mux_alarme_mode2 : entity work.mux0
+				port map (A => control(2), B => btn_set_output(0), SEL => SW(17), X => mux_selector2);
+		
 		-- SEGUNDOS
 		unidade_segundo : entity work.tempo
 				port map (CLOCK_50 => CLOCK_50, B => OUTPUT, CV => "1010", V => HEX2, S => output_us, EN => control(0));
@@ -48,17 +54,17 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 				port map (CLOCK_50 => CLOCK_50, B => output_us, CV => "0110", V => HEX3, S => output_ds);		
 				
 		--MINUTOS
-		unidade_minuto : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => mux_set_out1, CV => "1010", V => HEX4, S => output_um);
-		dezena_minuto : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => output_um, CV => "0110", V => HEX5, S => output_dm);
+		unidade_minuto : entity work.tempo_alarme
+				port map (CLOCK_50 => CLOCK_50, B => mux_set_out1, CV => "1010", V => HEX4, S => output_um, alarme_mode=> SW(17), btn1 => btn_set_output(0));
+		dezena_minuto : entity work.tempo_alarme
+				port map (CLOCK_50 => CLOCK_50, B => output_um, CV => "0110", V => HEX5, S => output_dm, alarme_mode=> SW(17), btn1 => btn_set_output(0));
 			
 				
 		--HORAS
-		unidade_hora : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => mux_set_out3, CV => cv_uh, V => HEX6, S => output_uh);
-		dezena_hora : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => output_uh, CV => "0011", V => HEX7, S => output_dh, Sreg => reg_dh);
+		unidade_hora : entity work.tempo_alarme
+				port map (CLOCK_50 => CLOCK_50, B => mux_set_out3, CV => cv_uh, V => HEX6, S => output_uh, alarme_mode=> SW(17), btn1 => btn_set_output(0));
+		dezena_hora : entity work.tempo_alarme
+				port map (CLOCK_50 => CLOCK_50, B => output_uh, CV => "0011", V => HEX7, S => output_dh, Sreg => reg_dh, alarme_mode=>SW(17), btn1 => btn_set_output(0));
 		
 		--LEDs
 		process(control)
