@@ -1,5 +1,5 @@
 Analysis & Synthesis report for relogio
-Thu Sep 28 15:33:45 2017
+Thu Sep 28 15:50:27 2017
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -70,16 +70,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Sep 28 15:33:45 2017       ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep 28 15:50:27 2017       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; relogio                                     ;
 ; Top-level Entity Name              ; FSMtopLevel                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 220                                         ;
-;     Total combinational functions  ; 217                                         ;
+; Total logic elements               ; 221                                         ;
+;     Total combinational functions  ; 218                                         ;
 ;     Dedicated logic registers      ; 84                                          ;
 ; Total registers                    ; 84                                          ;
-; Total pins                         ; 92                                          ;
+; Total pins                         ; 106                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -215,30 +215,30 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 220            ;
+; Estimated Total logic elements              ; 221            ;
 ;                                             ;                ;
-; Total combinational functions               ; 217            ;
+; Total combinational functions               ; 218            ;
 ; Logic element usage by number of LUT inputs ;                ;
 ;     -- 4 input functions                    ; 124            ;
 ;     -- 3 input functions                    ; 30             ;
-;     -- <=2 input functions                  ; 63             ;
+;     -- <=2 input functions                  ; 64             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 167            ;
+;     -- normal mode                          ; 168            ;
 ;     -- arithmetic mode                      ; 50             ;
 ;                                             ;                ;
 ; Total registers                             ; 84             ;
 ;     -- Dedicated logic registers            ; 84             ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
-; I/O pins                                    ; 92             ;
+; I/O pins                                    ; 106            ;
 ;                                             ;                ;
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 84             ;
-; Total fan-out                               ; 1067           ;
-; Average fan-out                             ; 2.20           ;
+; Total fan-out                               ; 1087           ;
+; Average fan-out                             ; 2.11           ;
 +---------------------------------------------+----------------+
 
 
@@ -247,7 +247,7 @@ agreement for further details.
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name      ; Library Name ;
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
-; |FSMtopLevel                      ; 217 (0)             ; 84 (0)                    ; 0           ; 0            ; 0       ; 0         ; 92   ; 0            ; |FSMtopLevel                                                 ; FSMtopLevel      ; work         ;
+; |FSMtopLevel                      ; 218 (1)             ; 84 (0)                    ; 0           ; 0            ; 0       ; 0         ; 106  ; 0            ; |FSMtopLevel                                                 ; FSMtopLevel      ; work         ;
 ;    |CountOneSec:counter|          ; 38 (38)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneSec:counter                             ; CountOneSec      ; work         ;
 ;    |SM1:SM_relogio|               ; 2 (2)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|SM1:SM_relogio                                  ; SM1              ; work         ;
 ;    |debounce:btn_set|             ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|debounce:btn_set                                ; debounce         ; work         ;
@@ -600,24 +600,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 92                          ;
+; boundary_port         ; 106                         ;
 ; cycloneiii_ff         ; 84                          ;
 ;     CLR               ; 26                          ;
 ;     ENA               ; 5                           ;
 ;     SCLR              ; 26                          ;
 ;     plain             ; 27                          ;
-; cycloneiii_lcell_comb ; 218                         ;
+; cycloneiii_lcell_comb ; 220                         ;
 ;     arith             ; 50                          ;
 ;         2 data inputs ; 50                          ;
-;     normal            ; 168                         ;
-;         0 data inputs ; 1                           ;
+;     normal            ; 170                         ;
+;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 10                          ;
+;         2 data inputs ; 11                          ;
 ;         3 data inputs ; 30                          ;
 ;         4 data inputs ; 124                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 4.76                        ;
+; Average LUT depth     ; 4.74                        ;
 +-----------------------+-----------------------------+
 
 
@@ -636,7 +636,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Sep 28 15:33:29 2017
+    Info: Processing started: Thu Sep 28 15:50:11 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off relogio -c relogio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -678,14 +678,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file debounc
     Info (12022): Found design unit 1: debounce-Behavioral File: /home/matheus/Documents/ProjetoDesignComputadores/debounce.vhd Line: 14
     Info (12023): Found entity 1: debounce File: /home/matheus/Documents/ProjetoDesignComputadores/debounce.vhd Line: 6
 Info (12127): Elaborating entity "FSMtopLevel" for the top level hierarchy
-Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(13): used explicit default value for signal "LEDR" because signal was never assigned a value File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
-Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(14): used explicit default value for signal "LEDG" because signal was never assigned a value File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
 Warning (10036): Verilog HDL or VHDL warning at FSMtopLevel.vhd(21): object "output_dh" assigned a value but never read File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 21
+Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(69): signal "btn_set_output" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 69
+Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(73): signal "btn_set_output" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 73
 Info (12128): Elaborating entity "SM1" for hierarchy "SM1:SM_relogio" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 26
 Info (12128): Elaborating entity "mux1" for hierarchy "mux1:mux_set_minuto" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 30
 Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_set" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 38
 Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 41
-Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 46
+Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 45
 Info (12128): Elaborating entity "registrador" for hierarchy "tempo:unidade_segundo|registrador:reg" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 22
 Info (12128): Elaborating entity "ULA" for hierarchy "tempo:unidade_segundo|ULA:ULA" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 25
 Info (12128): Elaborating entity "xor2" for hierarchy "tempo:unidade_segundo|xor2:XOR1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 28
@@ -694,7 +694,6 @@ Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "tempo:unidade
 Info (12128): Elaborating entity "not2" for hierarchy "tempo:unidade_segundo|not2:saida" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 34
 Warning (10873): Using initial value X (don't care) for net "X[3..1]" at not2.vhd(7) File: /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd Line: 7
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
@@ -708,11 +707,8 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[11]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[12]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[13]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
-    Warning (13410): Pin "LEDR[14]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[15]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[16]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
-    Warning (13410): Pin "LEDR[17]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
-    Warning (13410): Pin "LEDG[0]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
     Warning (13410): Pin "LEDG[1]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
     Warning (13410): Pin "LEDG[2]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
     Warning (13410): Pin "LEDG[3]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
@@ -721,6 +717,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
     Warning (13410): Pin "LEDG[7]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
     Warning (13410): Pin "LEDG[8]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 15
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -743,14 +753,14 @@ Warning (21074): Design contains 18 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[15]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[16]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[17]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
-Info (21057): Implemented 317 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 332 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
-    Info (21059): Implemented 69 output pins
-    Info (21061): Implemented 225 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info (21059): Implemented 83 output pins
+    Info (21061): Implemented 226 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
     Info: Peak virtual memory: 979 megabytes
-    Info: Processing ended: Thu Sep 28 15:33:45 2017
+    Info: Processing ended: Thu Sep 28 15:50:27 2017
     Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:35
+    Info: Total CPU time (on all processors): 00:00:37
 
 

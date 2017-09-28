@@ -12,7 +12,7 @@ entity FSMtopLevel is
 			  -- Saidas da placa (nomenclatura definida no arquivo ¨.qsf¨)
 			  LEDR : out STD_LOGIC_VECTOR(17 DOWNTO 0) := (others => '0');
 			  LEDG : out STD_LOGIC_VECTOR(8 DOWNTO 0)  := (others => '0');
-			  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5: OUT STD_LOGIC_VECTOR(6 downto 0)
+			  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7: OUT STD_LOGIC_VECTOR(6 downto 0)
 		 );
 end entity;
 
@@ -40,26 +40,43 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 		--COUNT SECONDS
 		counter : entity work.CountOneSec
 				port map (speed => SW(0),clock => CLOCK_50, reset => '0', output => OUTPUT);
-
 				
 		-- SEGUNDOS
 		unidade_segundo : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => OUTPUT, CV => "1010", V => HEX0, S => output_us, EN => control(0));
+				port map (CLOCK_50 => CLOCK_50, B => OUTPUT, CV => "1010", V => HEX2, S => output_us, EN => control(0));
 		dezena_segundo : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => output_us, CV => "0110", V => HEX1, S => output_ds);		
+				port map (CLOCK_50 => CLOCK_50, B => output_us, CV => "0110", V => HEX3, S => output_ds);		
 				
 		--MINUTOS
 		unidade_minuto : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => mux_set_out1, CV => "1010", V => HEX2, S => output_um);
+				port map (CLOCK_50 => CLOCK_50, B => mux_set_out1, CV => "1010", V => HEX4, S => output_um);
 		dezena_minuto : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => output_um, CV => "0110", V => HEX3, S => output_dm);
+				port map (CLOCK_50 => CLOCK_50, B => output_um, CV => "0110", V => HEX5, S => output_dm);
 			
 				
 		--HORAS
 		unidade_hora : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => mux_set_out3, CV => cv_uh, V => HEX4, S => output_uh);
+				port map (CLOCK_50 => CLOCK_50, B => mux_set_out3, CV => cv_uh, V => HEX6, S => output_uh);
 		dezena_hora : entity work.tempo
-				port map (CLOCK_50 => CLOCK_50, B => output_uh, CV => "0011", V => HEX5, S => output_dh, Sreg => reg_dh);
+				port map (CLOCK_50 => CLOCK_50, B => output_uh, CV => "0011", V => HEX7, S => output_dh, Sreg => reg_dh);
+		
+		--LEDs
+		process(control)
+			begin
+				if(control = "100") then
+					LEDR(17) <= '1';
+					LEDR(14) <= '0';
+					LEDG(0) <= btn_set_output(0);
+				elsif(control = "010") then
+					LEDR(14) <= '1';
+					LEDR(17) <= '0';
+					LEDG(0) <= btn_set_output(0);
+				else
+					LEDR(14) <= '0';
+					LEDR(17) <= '0';
+					LEDG(0) <= '0';
+				end if;
+			end process;
 		
 		process(reg_dh)
 			begin
@@ -70,4 +87,7 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 				end if;
 		end process;
 		
+		LEDR(0) <= SW(0);
+		HEX0 <= "1111111";
+		HEX1 <= "1111111";
 	end FSMtopLevel_architecture;
