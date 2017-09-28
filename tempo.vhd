@@ -9,18 +9,19 @@ entity tempo is
 			  CV : in STD_LOGIC_VECTOR(3 downto 0);
 			  V : out STD_LOGIC_VECTOR(6 downto 0);
 			  S : out STD_LOGIC_VECTOR(3 downto 0) := (others => '0');
-			  Sreg : out STD_LOGIC_VECTOR(3 downto 0)
+			  Sreg : out STD_LOGIC_VECTOR(3 downto 0);
+			  EN : in STD_LOGIC := '1'
 		 );
 end entity;
 
 
 architecture tempo_architecture of tempo is
 	signal ULA_IN_A, ULA_OUT, OUTPUT, mux_output, xor_output : std_logic_vector(3 downto 0) := (others=>'0');
-	signal overflowLocal : std_logic;
+	signal overflowLocal, enable: std_logic;
 	begin
 		 reg : entity work.registrador
 				generic map ( larguraDados => 4 )
-				port map (DIN => mux_output, DOUT => ULA_IN_A, CLK => CLOCK_50, RST => '0', ENABLE => '1');
+				port map (DIN => mux_output, DOUT => ULA_IN_A, CLK => CLOCK_50, RST => '0', ENABLE => EN);
 		 ULA : entity work.ULA
 				generic map ( larguraDados => 4 )
 				port map (A => ULA_IN_A, B => B, C => ULA_OUT, Sel => "00", overflow => overflowLocal);

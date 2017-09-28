@@ -19,7 +19,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
-ENTITY SM1 IS
+ENTITY relogio IS
     PORT (
         reset : IN STD_LOGIC := '0';
         clock : IN STD_LOGIC;
@@ -27,9 +27,9 @@ ENTITY SM1 IS
         h_m : IN STD_LOGIC := '0';
         saida : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
     );
-END SM1;
+END relogio;
 
-ARCHITECTURE BEHAVIOR OF SM1 IS
+ARCHITECTURE BEHAVIOR OF relogio IS
     TYPE type_fstate IS (state1,horario,state2);
     SIGNAL fstate : type_fstate;
     SIGNAL reg_fstate : type_fstate;

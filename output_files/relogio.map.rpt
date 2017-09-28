@@ -1,5 +1,5 @@
 Analysis & Synthesis report for relogio
-Thu Sep 28 15:00:32 2017
+Thu Sep 28 15:33:45 2017
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -13,34 +13,37 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: tempo:unidade_segundo|registrador:reg
- 11. Parameter Settings for User Entity Instance: tempo:unidade_segundo|ULA:ULA
- 12. Parameter Settings for User Entity Instance: tempo:dezena_segundo|registrador:reg
- 13. Parameter Settings for User Entity Instance: tempo:dezena_segundo|ULA:ULA
- 14. Parameter Settings for User Entity Instance: tempo:unidade_minuto|registrador:reg
- 15. Parameter Settings for User Entity Instance: tempo:unidade_minuto|ULA:ULA
- 16. Parameter Settings for User Entity Instance: tempo:dezena_minuto|registrador:reg
- 17. Parameter Settings for User Entity Instance: tempo:dezena_minuto|ULA:ULA
- 18. Parameter Settings for User Entity Instance: tempo:unidade_hora|registrador:reg
- 19. Parameter Settings for User Entity Instance: tempo:unidade_hora|ULA:ULA
- 20. Parameter Settings for User Entity Instance: tempo:dezena_hora|registrador:reg
- 21. Parameter Settings for User Entity Instance: tempo:dezena_hora|ULA:ULA
- 22. Port Connectivity Checks: "tempo:dezena_hora"
- 23. Port Connectivity Checks: "tempo:unidade_hora"
- 24. Port Connectivity Checks: "tempo:dezena_minuto"
- 25. Port Connectivity Checks: "tempo:unidade_minuto"
- 26. Port Connectivity Checks: "tempo:dezena_segundo"
- 27. Port Connectivity Checks: "tempo:unidade_segundo|conversorHex7Seg:display0"
- 28. Port Connectivity Checks: "tempo:unidade_segundo|mux2:MUX1"
- 29. Port Connectivity Checks: "tempo:unidade_segundo|ULA:ULA"
- 30. Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg"
- 31. Port Connectivity Checks: "tempo:unidade_segundo"
- 32. Port Connectivity Checks: "CountOneSec:counter"
- 33. Post-Synthesis Netlist Statistics for Top Partition
- 34. Elapsed Time Per Partition
- 35. Analysis & Synthesis Messages
+  8. State Machine - |FSMtopLevel|SM1:SM_relogio|fstate
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: tempo:unidade_segundo|registrador:reg
+ 12. Parameter Settings for User Entity Instance: tempo:unidade_segundo|ULA:ULA
+ 13. Parameter Settings for User Entity Instance: tempo:dezena_segundo|registrador:reg
+ 14. Parameter Settings for User Entity Instance: tempo:dezena_segundo|ULA:ULA
+ 15. Parameter Settings for User Entity Instance: tempo:unidade_minuto|registrador:reg
+ 16. Parameter Settings for User Entity Instance: tempo:unidade_minuto|ULA:ULA
+ 17. Parameter Settings for User Entity Instance: tempo:dezena_minuto|registrador:reg
+ 18. Parameter Settings for User Entity Instance: tempo:dezena_minuto|ULA:ULA
+ 19. Parameter Settings for User Entity Instance: tempo:unidade_hora|registrador:reg
+ 20. Parameter Settings for User Entity Instance: tempo:unidade_hora|ULA:ULA
+ 21. Parameter Settings for User Entity Instance: tempo:dezena_hora|registrador:reg
+ 22. Parameter Settings for User Entity Instance: tempo:dezena_hora|ULA:ULA
+ 23. Port Connectivity Checks: "tempo:dezena_hora"
+ 24. Port Connectivity Checks: "tempo:unidade_hora"
+ 25. Port Connectivity Checks: "tempo:dezena_minuto"
+ 26. Port Connectivity Checks: "tempo:unidade_minuto"
+ 27. Port Connectivity Checks: "tempo:dezena_segundo"
+ 28. Port Connectivity Checks: "tempo:unidade_segundo|conversorHex7Seg:display0"
+ 29. Port Connectivity Checks: "tempo:unidade_segundo|mux2:MUX1"
+ 30. Port Connectivity Checks: "tempo:unidade_segundo|ULA:ULA"
+ 31. Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg"
+ 32. Port Connectivity Checks: "tempo:unidade_segundo"
+ 33. Port Connectivity Checks: "CountOneSec:counter"
+ 34. Port Connectivity Checks: "mux1:mux_set_hora2"
+ 35. Port Connectivity Checks: "SM1:SM_relogio"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
 
 
 
@@ -67,15 +70,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Sep 28 15:00:32 2017       ;
+; Analysis & Synthesis Status        ; Successful - Thu Sep 28 15:33:45 2017       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; relogio                                     ;
 ; Top-level Entity Name              ; FSMtopLevel                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 263                                         ;
-;     Total combinational functions  ; 261                                         ;
-;     Dedicated logic registers      ; 108                                         ;
-; Total registers                    ; 108                                         ;
+; Total logic elements               ; 220                                         ;
+;     Total combinational functions  ; 217                                         ;
+;     Dedicated logic registers      ; 84                                          ;
+; Total registers                    ; 84                                          ;
 ; Total pins                         ; 92                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -192,6 +195,7 @@ agreement for further details.
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                           ; Library ;
 +----------------------------------+-----------------+-----------------+------------------------------------------------------------------------+---------+
+; SM1.vhd                          ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd              ;         ;
 ; xor2.vhd                         ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/xor2.vhd             ;         ;
 ; mux2.vhd                         ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/mux2.vhd             ;         ;
 ; CountOneSec.vhd                  ; yes             ; User VHDL File  ; /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd      ;         ;
@@ -211,20 +215,20 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 263            ;
+; Estimated Total logic elements              ; 220            ;
 ;                                             ;                ;
-; Total combinational functions               ; 261            ;
+; Total combinational functions               ; 217            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 144            ;
+;     -- 4 input functions                    ; 124            ;
 ;     -- 3 input functions                    ; 30             ;
-;     -- <=2 input functions                  ; 87             ;
+;     -- <=2 input functions                  ; 63             ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 186            ;
-;     -- arithmetic mode                      ; 75             ;
+;     -- normal mode                          ; 167            ;
+;     -- arithmetic mode                      ; 50             ;
 ;                                             ;                ;
-; Total registers                             ; 108            ;
-;     -- Dedicated logic registers            ; 108            ;
+; Total registers                             ; 84             ;
+;     -- Dedicated logic registers            ; 84             ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 92             ;
@@ -232,9 +236,9 @@ agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 108            ;
-; Total fan-out                               ; 1265           ;
-; Average fan-out                             ; 2.29           ;
+; Maximum fan-out                             ; 84             ;
+; Total fan-out                               ; 1067           ;
+; Average fan-out                             ; 2.20           ;
 +---------------------------------------------+----------------+
 
 
@@ -243,11 +247,11 @@ agreement for further details.
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Entity Name      ; Library Name ;
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+------------------+--------------+
-; |FSMtopLevel                      ; 261 (0)             ; 108 (0)                   ; 0           ; 0            ; 0       ; 0         ; 92   ; 0            ; |FSMtopLevel                                                 ; FSMtopLevel      ; work         ;
+; |FSMtopLevel                      ; 217 (0)             ; 84 (0)                    ; 0           ; 0            ; 0       ; 0         ; 92   ; 0            ; |FSMtopLevel                                                 ; FSMtopLevel      ; work         ;
 ;    |CountOneSec:counter|          ; 38 (38)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneSec:counter                             ; CountOneSec      ; work         ;
-;    |debounce:btn_set_hora|        ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|debounce:btn_set_hora                           ; debounce         ; work         ;
-;    |debounce:btn_set_minuto|      ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|debounce:btn_set_minuto                         ; debounce         ; work         ;
-;    |mux1:mux_set_hora|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|mux1:mux_set_hora                               ; mux1             ; work         ;
+;    |SM1:SM_relogio|               ; 2 (2)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|SM1:SM_relogio                                  ; SM1              ; work         ;
+;    |debounce:btn_set|             ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|debounce:btn_set                                ; debounce         ; work         ;
+;    |mux1:mux_set_hora2|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|mux1:mux_set_hora2                              ; mux1             ; work         ;
 ;    |tempo:dezena_hora|            ; 22 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora                               ; tempo            ; work         ;
 ;       |ULA:ULA|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|ULA:ULA                       ; ULA              ; work         ;
 ;       |conversorHex7Seg:display0| ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_hora|conversorHex7Seg:display0     ; conversorHex7Seg ; work         ;
@@ -288,22 +292,32 @@ agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                  ;
-+-----------------------------------------------------+-----------------------------------------------+
-; Register name                                       ; Reason for Removal                            ;
-+-----------------------------------------------------+-----------------------------------------------+
-; CountOneSec:counter|division[1,7,9,14,15,20,22..25] ; Stuck at GND due to stuck port data_in        ;
-; CountOneSec:counter|output[1..3]                    ; Stuck at GND due to stuck port data_in        ;
-; CountOneSec:counter|division[11]                    ; Merged with CountOneSec:counter|division[10]  ;
-; debounce:btn_set_minuto|output[2,3]                 ; Merged with debounce:btn_set_minuto|output[1] ;
-; debounce:btn_set_hora|output[2,3]                   ; Merged with debounce:btn_set_hora|output[1]   ;
-; CountOneSec:counter|division[2..6,8,12,13,18]       ; Merged with CountOneSec:counter|division[0]   ;
-; CountOneSec:counter|division[17,19,21]              ; Merged with CountOneSec:counter|division[16]  ;
-; debounce:btn_set_hora|output[1]                     ; Stuck at GND due to stuck port data_in        ;
-; debounce:btn_set_minuto|output[1]                   ; Stuck at GND due to stuck port data_in        ;
-; Total Number of Removed Registers = 32              ;                                               ;
-+-----------------------------------------------------+-----------------------------------------------+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------+
+; State Machine - |FSMtopLevel|SM1:SM_relogio|fstate              ;
++----------------+---------------+---------------+----------------+
+; Name           ; fstate.state2 ; fstate.state1 ; fstate.horario ;
++----------------+---------------+---------------+----------------+
+; fstate.horario ; 0             ; 0             ; 0              ;
+; fstate.state1  ; 0             ; 1             ; 1              ;
+; fstate.state2  ; 1             ; 0             ; 1              ;
++----------------+---------------+---------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                 ;
++-----------------------------------------------------+----------------------------------------------+
+; Register name                                       ; Reason for Removal                           ;
++-----------------------------------------------------+----------------------------------------------+
+; CountOneSec:counter|division[1,7,9,14,15,20,22..25] ; Stuck at GND due to stuck port data_in       ;
+; CountOneSec:counter|output[1..3]                    ; Stuck at GND due to stuck port data_in       ;
+; CountOneSec:counter|division[11]                    ; Merged with CountOneSec:counter|division[10] ;
+; debounce:btn_set|output[2,3]                        ; Merged with debounce:btn_set|output[1]       ;
+; CountOneSec:counter|division[2..6,8,12,13,18]       ; Merged with CountOneSec:counter|division[0]  ;
+; CountOneSec:counter|division[17,19,21]              ; Merged with CountOneSec:counter|division[16] ;
+; debounce:btn_set|output[1]                          ; Stuck at GND due to stuck port data_in       ;
+; Total Number of Removed Registers = 29              ;                                              ;
++-----------------------------------------------------+----------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -311,12 +325,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 108   ;
+; Total registers                              ; 84    ;
 ; Number of registers using Synchronous Clear  ; 26    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 52    ;
+; Number of registers using Asynchronous Clear ; 26    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Clock Enable       ; 5     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -449,6 +463,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cv[1..0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; cv[3..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; s        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en       ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -459,6 +474,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 ; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en    ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -471,6 +487,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cv[3]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; cv[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; sreg     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en       ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -484,6 +501,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cv[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
 ; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en    ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -496,6 +514,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cv[3]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; cv[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; sreg     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en       ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -529,12 +548,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-------------------------------------------------------------------+
 ; Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg" ;
-+--------+-------+----------+---------------------------------------+
-; Port   ; Type  ; Severity ; Details                               ;
-+--------+-------+----------+---------------------------------------+
-; enable ; Input ; Info     ; Stuck at VCC                          ;
-; rst    ; Input ; Info     ; Stuck at GND                          ;
-+--------+-------+----------+---------------------------------------+
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; rst  ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -559,29 +577,47 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+----------------------+
 
 
++------------------------------------------------+
+; Port Connectivity Checks: "mux1:mux_set_hora2" ;
++------+-------+----------+----------------------+
+; Port ; Type  ; Severity ; Details              ;
++------+-------+----------+----------------------+
+; b    ; Input ; Info     ; Stuck at GND         ;
++------+-------+----------+----------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "SM1:SM_relogio" ;
++-------+-------+----------+-----------------+
+; Port  ; Type  ; Severity ; Details         ;
++-------+-------+----------+-----------------+
+; reset ; Input ; Info     ; Stuck at GND    ;
++-------+-------+----------+-----------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 92                          ;
-; cycloneiii_ff         ; 108                         ;
-;     CLR               ; 52                          ;
-;     ENA               ; 2                           ;
+; cycloneiii_ff         ; 84                          ;
+;     CLR               ; 26                          ;
+;     ENA               ; 5                           ;
 ;     SCLR              ; 26                          ;
-;     plain             ; 28                          ;
-; cycloneiii_lcell_comb ; 262                         ;
-;     arith             ; 75                          ;
-;         2 data inputs ; 75                          ;
-;     normal            ; 187                         ;
+;     plain             ; 27                          ;
+; cycloneiii_lcell_comb ; 218                         ;
+;     arith             ; 50                          ;
+;         2 data inputs ; 50                          ;
+;     normal            ; 168                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 8                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 10                          ;
 ;         3 data inputs ; 30                          ;
-;         4 data inputs ; 144                         ;
+;         4 data inputs ; 124                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 4.58                        ;
+; Average LUT depth     ; 4.76                        ;
 +-----------------------+-----------------------------+
 
 
@@ -600,19 +636,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Sep 28 15:00:16 2017
+    Info: Processing started: Thu Sep 28 15:33:29 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off relogio -c relogio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file SM1.vhd
+    Info (12022): Found design unit 1: SM1-BEHAVIOR File: /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd Line: 32
+    Info (12023): Found entity 1: SM1 File: /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file xor2.vhd
     Info (12022): Found design unit 1: xor2-Behavioral File: /home/matheus/Documents/ProjetoDesignComputadores/xor2.vhd Line: 11
     Info (12023): Found entity 1: xor2 File: /home/matheus/Documents/ProjetoDesignComputadores/xor2.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file mux2.vhd
     Info (12022): Found design unit 1: mux2-Behavioral File: /home/matheus/Documents/ProjetoDesignComputadores/mux2.vhd Line: 11
     Info (12023): Found entity 1: mux2 File: /home/matheus/Documents/ProjetoDesignComputadores/mux2.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file SM1.vhd
-    Info (12022): Found design unit 1: relogio-BEHAVIOR File: /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd Line: 32
-    Info (12023): Found entity 1: relogio File: /home/matheus/Documents/ProjetoDesignComputadores/SM1.vhd Line: 22
 Info (12021): Found 2 design units, including 1 entities, in source file CountOneSec.vhd
     Info (12022): Found design unit 1: CountOneSec-CountOneSec_behaviour File: /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd Line: 14
     Info (12023): Found entity 1: CountOneSec File: /home/matheus/Documents/ProjetoDesignComputadores/CountOneSec.vhd Line: 6
@@ -630,7 +666,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file ULA.vhd
     Info (12022): Found design unit 1: ULA-comportamento File: /home/matheus/Documents/ProjetoDesignComputadores/ULA.vhd Line: 17
     Info (12023): Found entity 1: ULA File: /home/matheus/Documents/ProjetoDesignComputadores/ULA.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tempo.vhd
-    Info (12022): Found design unit 1: tempo-tempo_architecture File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 17
+    Info (12022): Found design unit 1: tempo-tempo_architecture File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 18
     Info (12023): Found entity 1: tempo File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file not2.vhd
     Info (12022): Found design unit 1: not2-func File: /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd Line: 11
@@ -645,17 +681,18 @@ Info (12127): Elaborating entity "FSMtopLevel" for the top level hierarchy
 Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(13): used explicit default value for signal "LEDR" because signal was never assigned a value File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
 Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(14): used explicit default value for signal "LEDG" because signal was never assigned a value File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 14
 Warning (10036): Verilog HDL or VHDL warning at FSMtopLevel.vhd(21): object "output_dh" assigned a value but never read File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 21
-Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 24
-Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 28
-Info (12128): Elaborating entity "registrador" for hierarchy "tempo:unidade_segundo|registrador:reg" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 21
-Info (12128): Elaborating entity "ULA" for hierarchy "tempo:unidade_segundo|ULA:ULA" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 24
-Info (12128): Elaborating entity "xor2" for hierarchy "tempo:unidade_segundo|xor2:XOR1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 27
-Info (12128): Elaborating entity "mux2" for hierarchy "tempo:unidade_segundo|mux2:MUX1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 29
-Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "tempo:unidade_segundo|conversorHex7Seg:display0" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 31
-Info (12128): Elaborating entity "not2" for hierarchy "tempo:unidade_segundo|not2:saida" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 33
+Info (12128): Elaborating entity "SM1" for hierarchy "SM1:SM_relogio" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 26
+Info (12128): Elaborating entity "mux1" for hierarchy "mux1:mux_set_minuto" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 30
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_set" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 38
+Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 41
+Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 46
+Info (12128): Elaborating entity "registrador" for hierarchy "tempo:unidade_segundo|registrador:reg" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 22
+Info (12128): Elaborating entity "ULA" for hierarchy "tempo:unidade_segundo|ULA:ULA" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 25
+Info (12128): Elaborating entity "xor2" for hierarchy "tempo:unidade_segundo|xor2:XOR1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 28
+Info (12128): Elaborating entity "mux2" for hierarchy "tempo:unidade_segundo|mux2:MUX1" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 30
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "tempo:unidade_segundo|conversorHex7Seg:display0" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 32
+Info (12128): Elaborating entity "not2" for hierarchy "tempo:unidade_segundo|not2:saida" File: /home/matheus/Documents/ProjetoDesignComputadores/tempo.vhd Line: 34
 Warning (10873): Using initial value X (don't care) for net "X[3..1]" at not2.vhd(7) File: /home/matheus/Documents/ProjetoDesignComputadores/not2.vhd Line: 7
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_set_minuto" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 33
-Info (12128): Elaborating entity "mux1" for hierarchy "mux1:mux_set_minuto" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 35
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 13
@@ -687,7 +724,8 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
+Warning (21074): Design contains 18 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
     Warning (15610): No output dependent on input pin "KEY[2]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
     Warning (15610): No output dependent on input pin "KEY[3]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 9
     Warning (15610): No output dependent on input pin "SW[3]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
@@ -705,14 +743,14 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[15]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[16]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[17]" File: /home/matheus/Documents/ProjetoDesignComputadores/FSMtopLevel.vhd Line: 10
-Info (21057): Implemented 360 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 317 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 69 output pins
-    Info (21061): Implemented 268 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 971 megabytes
-    Info: Processing ended: Thu Sep 28 15:00:32 2017
+    Info (21061): Implemented 225 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 979 megabytes
+    Info: Processing ended: Thu Sep 28 15:33:45 2017
     Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:36
+    Info: Total CPU time (on all processors): 00:00:35
 
 

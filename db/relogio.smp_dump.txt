@@ -1,5 +1,5 @@
 
-State Machine - |relogio|fstate
+State Machine - |FSMtopLevel|SM1:SM_relogio|fstate
 Name fstate.state2 fstate.state1 fstate.horario 
 fstate.horario 0 0 0 
 fstate.state1 0 1 1 
