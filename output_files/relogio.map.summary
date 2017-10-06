@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Thu Sep 28 17:43:31 2017
+Analysis & Synthesis Status : Successful - Thu Oct  5 19:08:00 2017
 Quartus Prime Version : 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 Revision Name : relogio
 Top-level Entity Name : FSMtopLevel
 Family : Cyclone IV E
-Total logic elements : 355
-    Total combinational functions : 352
-    Dedicated logic registers : 100
-Total registers : 100
+Total logic elements : 266
+    Total combinational functions : 265
+    Dedicated logic registers : 62
+Total registers : 62
 Total pins : 106
 Total virtual pins : 0
 Total memory bits : 0

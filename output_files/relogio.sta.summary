@@ -3,75 +3,75 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'SW[17]'
-Slack : -7.169
-TNS   : -173.013
+Slack : -7.599
+TNS   : -201.877
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -3.514
-TNS   : -202.909
+Slack : -3.996
+TNS   : -139.961
 
 Type  : Slow 1200mV 85C Model Hold 'SW[17]'
-Slack : 0.025
-TNS   : 0.000
+Slack : -0.725
+TNS   : -5.136
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.404
+Slack : 0.038
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -134.070
+TNS   : -85.240
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'SW[17]'
 Slack : -3.000
 TNS   : -3.000
 
 Type  : Slow 1200mV 0C Model Setup 'SW[17]'
-Slack : -6.496
-TNS   : -158.308
+Slack : -7.150
+TNS   : -186.163
 
 Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -3.162
-TNS   : -177.744
+Slack : -3.524
+TNS   : -122.066
 
 Type  : Slow 1200mV 0C Model Hold 'SW[17]'
-Slack : 0.061
-TNS   : 0.000
+Slack : -0.657
+TNS   : -4.557
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.355
+Slack : 0.016
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -134.070
+TNS   : -85.240
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'SW[17]'
 Slack : -3.000
 TNS   : -3.000
 
 Type  : Fast 1200mV 0C Model Setup 'SW[17]'
-Slack : -2.996
-TNS   : -70.459
+Slack : -3.178
+TNS   : -86.838
 
 Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.405
-TNS   : -65.905
+Slack : -2.293
+TNS   : -54.240
 
 Type  : Fast 1200mV 0C Model Hold 'SW[17]'
-Slack : -0.141
-TNS   : -0.387
+Slack : -0.542
+TNS   : -7.138
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.156
-TNS   : 0.000
+Slack : -0.158
+TNS   : -0.158
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -136.035
+TNS   : -87.102
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'SW[17]'
 Slack : -3.000
-TNS   : -6.232
+TNS   : -12.644
 
 ------------------------------------------------------------

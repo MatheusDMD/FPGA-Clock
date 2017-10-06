@@ -27,7 +27,7 @@ architecture tempo_architecture of tempo_alarme is
 				
 		 reg_alarme : entity work.registrador
 				generic map ( larguraDados => 4 )
-				port map (DIN => a_output, DOUT => REG_A, CLK => CLOCK_50, RST => '0', ENABLE => EN);
+				port map (DIN => a_output, DOUT => REG_A, CLK => CLOCK_50, RST => '0');
 				
 		 MUX_MUX : entity work.mux0
 				port map (A => '0', B=> btn1, SEL=> alarme_mode, X => mux_out_select_reg);
