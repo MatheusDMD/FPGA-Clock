@@ -5,10 +5,10 @@ use IEEE.STD_LOGIC_1164.ALL;
     generic (
         larguraDados : natural := 8
     );
-      port (DIN : in    std_logic_vector(larguraDados-1 downto 0);
-           DOUT : out   std_logic_vector(larguraDados-1 downto 0);
+      port (DIN : in    std_logic_vector(larguraDados-1 downto 0) := (others => '0');
+           DOUT : out   std_logic_vector(larguraDados-1 downto 0) := (others => '0');
            ENABLE : in  std_logic;
-           CLK,RST : in std_logic);
+           CLK,RST : in std_logic := '1');
  end entity;
 
  architecture comportamento of registrador is

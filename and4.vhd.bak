@@ -1,0 +1,23 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity xor1 is
+    Port ( A1 : in  STD_LOGIC_VECTOR(3 downto 0);      -- XOR gate input 1
+           A2 : in  STD_LOGIC_VECTOR(3 downto 0);      -- XOR gate input 
+			  A3 : in  STD_LOGIC_VECTOR(3 downto 0);      -- XOR gate input 
+			  A4 : in  STD_LOGIC_VECTOR(3 downto 0);      -- XOR gate input 
+           X1 : out  STD_LOGIC    -- XOR gate output
+			  );
+end xor2;
+
+architecture Behavioral of xor1 is
+begin
+	process(A1,A2)
+		begin
+			if((A1 and A2 and A3 and A4) then
+				X1 <= '1';		-- 2 input exclusive-OR
+			else
+				X1 <= '0';
+			end if;
+	end process;
+end Behavioral;

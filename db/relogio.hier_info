@@ -1,5 +1,6 @@
 |FSMtopLevel
 CLOCK_50 => sm1:SM_relogio.clock
+CLOCK_50 => alarmsm:SM_alarm.clock
 CLOCK_50 => debounce:btn_set.CLK
 CLOCK_50 => countonesec:counter.clock
 CLOCK_50 => tempo:unidade_segundo.CLOCK_50
@@ -16,6 +17,7 @@ SW[0] => countonesec:counter.speed
 SW[0] => LEDR[0].DATAIN
 SW[1] => sm1:SM_relogio.set
 SW[2] => sm1:SM_relogio.h_m
+SW[2] => alarmsm:SM_alarm.h_m
 SW[3] => ~NO_FANOUT~
 SW[4] => ~NO_FANOUT~
 SW[5] => ~NO_FANOUT~
@@ -28,14 +30,9 @@ SW[11] => ~NO_FANOUT~
 SW[12] => ~NO_FANOUT~
 SW[13] => ~NO_FANOUT~
 SW[14] => ~NO_FANOUT~
-SW[15] => ~NO_FANOUT~
-SW[16] => ~NO_FANOUT~
-SW[17] => mux0:mux_alarme_mode.SEL
-SW[17] => mux0:mux_alarme_mode2.SEL
-SW[17] => tempo_alarme:unidade_minuto.alarme_mode
-SW[17] => tempo_alarme:dezena_minuto.alarme_mode
-SW[17] => tempo_alarme:unidade_hora.alarme_mode
-SW[17] => tempo_alarme:dezena_hora.alarme_mode
+SW[15] => process_2.IN1
+SW[16] => alarmsm:SM_alarm.alarm_mode
+SW[17] => ~NO_FANOUT~
 LEDR[0] <= SW[0].DB_MAX_OUTPUT_PORT_TYPE
 LEDR[1] <= <GND>
 LEDR[2] <= <GND>
@@ -55,13 +52,13 @@ LEDR[15] <= <GND>
 LEDR[16] <= <GND>
 LEDR[17] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 LEDG[0] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[1] <= <GND>
-LEDG[2] <= <GND>
-LEDG[3] <= <GND>
-LEDG[4] <= <GND>
-LEDG[5] <= <GND>
-LEDG[6] <= <GND>
-LEDG[7] <= <GND>
+LEDG[1] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[4] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[5] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[6] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[7] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
 LEDG[8] <= <GND>
 HEX0[0] <= <VCC>
 HEX0[1] <= <VCC>
@@ -141,6 +138,30 @@ h_m => process_1.IN1
 saida[0] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[1] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[2] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|alarmSM:SM_alarm
+reset => reg_fstate.set_min.OUTPUTSELECT
+reset => reg_fstate.set_hora.OUTPUTSELECT
+reset => reg_fstate.init.OUTPUTSELECT
+reset => reg_fstate.wait_alarm.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+clock => fstate~1.DATAIN
+alarm_mode => process_1.IN0
+alarm_mode => process_1.IN0
+alarm_mode => process_1.IN0
+alarm_mode => process_1.IN0
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+saida[0] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FSMtopLevel|mux1:mux_set_minuto
@@ -913,10 +934,12 @@ Sreg[1] <= mux1:MUX_REG.X[1]
 Sreg[2] <= mux1:MUX_REG.X[2]
 Sreg[3] <= mux1:MUX_REG.X[3]
 EN => registrador:reg.ENABLE
-EN => registrador:reg_alarme.ENABLE
+EN_A => registrador:reg_alarme.ENABLE
+RST => registrador:reg_alarme.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
 btn1 => mux0:MUX_MUX.B
+alarm_compare <= xor1:compare.X1
 
 
 |FSMtopLevel|tempo_alarme:unidade_minuto|registrador:reg
@@ -1222,6 +1245,18 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
+|FSMtopLevel|tempo_alarme:unidade_minuto|xor1:compare
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:dezena_minuto
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
@@ -1249,10 +1284,12 @@ Sreg[1] <= mux1:MUX_REG.X[1]
 Sreg[2] <= mux1:MUX_REG.X[2]
 Sreg[3] <= mux1:MUX_REG.X[3]
 EN => registrador:reg.ENABLE
-EN => registrador:reg_alarme.ENABLE
+EN_A => registrador:reg_alarme.ENABLE
+RST => registrador:reg_alarme.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
 btn1 => mux0:MUX_MUX.B
+alarm_compare <= xor1:compare.X1
 
 
 |FSMtopLevel|tempo_alarme:dezena_minuto|registrador:reg
@@ -1558,6 +1595,18 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
+|FSMtopLevel|tempo_alarme:dezena_minuto|xor1:compare
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:unidade_hora
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
@@ -1585,10 +1634,12 @@ Sreg[1] <= mux1:MUX_REG.X[1]
 Sreg[2] <= mux1:MUX_REG.X[2]
 Sreg[3] <= mux1:MUX_REG.X[3]
 EN => registrador:reg.ENABLE
-EN => registrador:reg_alarme.ENABLE
+EN_A => registrador:reg_alarme.ENABLE
+RST => registrador:reg_alarme.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
 btn1 => mux0:MUX_MUX.B
+alarm_compare <= xor1:compare.X1
 
 
 |FSMtopLevel|tempo_alarme:unidade_hora|registrador:reg
@@ -1894,6 +1945,18 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
+|FSMtopLevel|tempo_alarme:unidade_hora|xor1:compare
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:dezena_hora
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
@@ -1921,10 +1984,12 @@ Sreg[1] <= mux1:MUX_REG.X[1]
 Sreg[2] <= mux1:MUX_REG.X[2]
 Sreg[3] <= mux1:MUX_REG.X[3]
 EN => registrador:reg.ENABLE
-EN => registrador:reg_alarme.ENABLE
+EN_A => registrador:reg_alarme.ENABLE
+RST => registrador:reg_alarme.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
 btn1 => mux0:MUX_MUX.B
+alarm_compare <= xor1:compare.X1
 
 
 |FSMtopLevel|tempo_alarme:dezena_hora|registrador:reg
@@ -2228,5 +2293,25 @@ X[0] <= A[0].DB_MAX_OUTPUT_PORT_TYPE
 X[1] <= <GND>
 X[2] <= <GND>
 X[3] <= <GND>
+
+
+|FSMtopLevel|tempo_alarme:dezena_hora|xor1:compare
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|alarm_and:compare_alarm
+A => process_0.IN0
+B => process_0.IN1
+C => process_0.IN1
+D => process_0.IN1
+X <= process_0.DB_MAX_OUTPUT_PORT_TYPE
 
 
