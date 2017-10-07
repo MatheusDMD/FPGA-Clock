@@ -1,8 +1,10 @@
 |FSMtopLevel
 CLOCK_50 => sm1:SM_relogio.clock
 CLOCK_50 => alarmsm:SM_alarm.clock
+CLOCK_50 => countdownsm:SM_countdown.clock
 CLOCK_50 => debounce:btn_set.CLK
 CLOCK_50 => countonesec:counter.clock
+CLOCK_50 => countonemin:counter_min.clock
 CLOCK_50 => tempo:unidade_segundo.CLOCK_50
 CLOCK_50 => tempo:dezena_segundo.CLOCK_50
 CLOCK_50 => tempo_alarme:unidade_minuto.CLOCK_50
@@ -17,14 +19,20 @@ SW[0] => countonesec:counter.speed
 SW[0] => LEDR[0].DATAIN
 SW[1] => sm1:SM_relogio.set
 SW[2] => sm1:SM_relogio.h_m
-SW[2] => alarmsm:SM_alarm.h_m
 SW[3] => ~NO_FANOUT~
 SW[4] => ~NO_FANOUT~
 SW[5] => ~NO_FANOUT~
 SW[6] => ~NO_FANOUT~
-SW[7] => ~NO_FANOUT~
-SW[8] => ~NO_FANOUT~
-SW[9] => ~NO_FANOUT~
+SW[7] => comb.IN0
+SW[7] => comb.IN0
+SW[8] => comb.IN1
+SW[8] => comb.IN1
+SW[8] => comb.IN1
+SW[8] => comb.IN1
+SW[8] => comb.IN1
+SW[8] => comb.IN1
+SW[8] => countdownsm:SM_countdown.count_mode
+SW[9] => countdownsm:SM_countdown.h_m
 SW[10] => ~NO_FANOUT~
 SW[11] => ~NO_FANOUT~
 SW[12] => ~NO_FANOUT~
@@ -32,90 +40,92 @@ SW[13] => ~NO_FANOUT~
 SW[14] => ~NO_FANOUT~
 SW[15] => process_2.IN1
 SW[16] => alarmsm:SM_alarm.alarm_mode
-SW[17] => ~NO_FANOUT~
-LEDR[0] <= SW[0].DB_MAX_OUTPUT_PORT_TYPE
-LEDR[1] <= <GND>
-LEDR[2] <= <GND>
-LEDR[3] <= <GND>
-LEDR[4] <= <GND>
-LEDR[5] <= <GND>
-LEDR[6] <= <GND>
-LEDR[7] <= <GND>
-LEDR[8] <= <GND>
-LEDR[9] <= <GND>
-LEDR[10] <= <GND>
-LEDR[11] <= <GND>
-LEDR[12] <= <GND>
-LEDR[13] <= <GND>
-LEDR[14] <= LEDR.DB_MAX_OUTPUT_PORT_TYPE
-LEDR[15] <= <GND>
-LEDR[16] <= <GND>
-LEDR[17] <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[0] <= LEDG.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[1] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[2] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[3] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[4] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[5] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[6] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[7] <= process_2.DB_MAX_OUTPUT_PORT_TYPE
-LEDG[8] <= <GND>
-HEX0[0] <= <VCC>
-HEX0[1] <= <VCC>
-HEX0[2] <= <VCC>
-HEX0[3] <= <VCC>
-HEX0[4] <= <VCC>
-HEX0[5] <= <VCC>
-HEX0[6] <= <VCC>
-HEX1[0] <= <VCC>
-HEX1[1] <= <VCC>
-HEX1[2] <= <VCC>
-HEX1[3] <= <VCC>
-HEX1[4] <= <VCC>
-HEX1[5] <= <VCC>
-HEX1[6] <= <VCC>
-HEX2[0] <= tempo:unidade_segundo.V[0]
-HEX2[1] <= tempo:unidade_segundo.V[1]
-HEX2[2] <= tempo:unidade_segundo.V[2]
-HEX2[3] <= tempo:unidade_segundo.V[3]
-HEX2[4] <= tempo:unidade_segundo.V[4]
-HEX2[5] <= tempo:unidade_segundo.V[5]
-HEX2[6] <= tempo:unidade_segundo.V[6]
-HEX3[0] <= tempo:dezena_segundo.V[0]
-HEX3[1] <= tempo:dezena_segundo.V[1]
-HEX3[2] <= tempo:dezena_segundo.V[2]
-HEX3[3] <= tempo:dezena_segundo.V[3]
-HEX3[4] <= tempo:dezena_segundo.V[4]
-HEX3[5] <= tempo:dezena_segundo.V[5]
-HEX3[6] <= tempo:dezena_segundo.V[6]
-HEX4[0] <= tempo_alarme:unidade_minuto.V[0]
-HEX4[1] <= tempo_alarme:unidade_minuto.V[1]
-HEX4[2] <= tempo_alarme:unidade_minuto.V[2]
-HEX4[3] <= tempo_alarme:unidade_minuto.V[3]
-HEX4[4] <= tempo_alarme:unidade_minuto.V[4]
-HEX4[5] <= tempo_alarme:unidade_minuto.V[5]
-HEX4[6] <= tempo_alarme:unidade_minuto.V[6]
-HEX5[0] <= tempo_alarme:dezena_minuto.V[0]
-HEX5[1] <= tempo_alarme:dezena_minuto.V[1]
-HEX5[2] <= tempo_alarme:dezena_minuto.V[2]
-HEX5[3] <= tempo_alarme:dezena_minuto.V[3]
-HEX5[4] <= tempo_alarme:dezena_minuto.V[4]
-HEX5[5] <= tempo_alarme:dezena_minuto.V[5]
-HEX5[6] <= tempo_alarme:dezena_minuto.V[6]
-HEX6[0] <= tempo_alarme:unidade_hora.V[0]
-HEX6[1] <= tempo_alarme:unidade_hora.V[1]
-HEX6[2] <= tempo_alarme:unidade_hora.V[2]
-HEX6[3] <= tempo_alarme:unidade_hora.V[3]
-HEX6[4] <= tempo_alarme:unidade_hora.V[4]
-HEX6[5] <= tempo_alarme:unidade_hora.V[5]
-HEX6[6] <= tempo_alarme:unidade_hora.V[6]
-HEX7[0] <= tempo_alarme:dezena_hora.V[0]
-HEX7[1] <= tempo_alarme:dezena_hora.V[1]
-HEX7[2] <= tempo_alarme:dezena_hora.V[2]
-HEX7[3] <= tempo_alarme:dezena_hora.V[3]
-HEX7[4] <= tempo_alarme:dezena_hora.V[4]
-HEX7[5] <= tempo_alarme:dezena_hora.V[5]
-HEX7[6] <= tempo_alarme:dezena_hora.V[6]
+SW[16] => tempo:unidade_segundo.alarm
+SW[16] => tempo:dezena_segundo.alarm
+SW[17] => alarmsm:SM_alarm.h_m
+LEDR[0] << SW[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] << <GND>
+LEDR[2] << <GND>
+LEDR[3] << <GND>
+LEDR[4] << <GND>
+LEDR[5] << <GND>
+LEDR[6] << <GND>
+LEDR[7] << <GND>
+LEDR[8] << <GND>
+LEDR[9] << <GND>
+LEDR[10] << <GND>
+LEDR[11] << <GND>
+LEDR[12] << <GND>
+LEDR[13] << <GND>
+LEDR[14] << Equal0.DB_MAX_OUTPUT_PORT_TYPE
+LEDR[15] << <GND>
+LEDR[16] << <GND>
+LEDR[17] << LEDR.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[0] << LEDG.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[1] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[2] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[3] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[4] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[5] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[6] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[7] << process_2.DB_MAX_OUTPUT_PORT_TYPE
+LEDG[8] << <GND>
+HEX0[0] << <VCC>
+HEX0[1] << <VCC>
+HEX0[2] << <VCC>
+HEX0[3] << <VCC>
+HEX0[4] << <VCC>
+HEX0[5] << <VCC>
+HEX0[6] << <VCC>
+HEX1[0] << <VCC>
+HEX1[1] << <VCC>
+HEX1[2] << <VCC>
+HEX1[3] << <VCC>
+HEX1[4] << <VCC>
+HEX1[5] << <VCC>
+HEX1[6] << <VCC>
+HEX2[0] << tempo:unidade_segundo.V[0]
+HEX2[1] << tempo:unidade_segundo.V[1]
+HEX2[2] << tempo:unidade_segundo.V[2]
+HEX2[3] << tempo:unidade_segundo.V[3]
+HEX2[4] << tempo:unidade_segundo.V[4]
+HEX2[5] << tempo:unidade_segundo.V[5]
+HEX2[6] << tempo:unidade_segundo.V[6]
+HEX3[0] << tempo:dezena_segundo.V[0]
+HEX3[1] << tempo:dezena_segundo.V[1]
+HEX3[2] << tempo:dezena_segundo.V[2]
+HEX3[3] << tempo:dezena_segundo.V[3]
+HEX3[4] << tempo:dezena_segundo.V[4]
+HEX3[5] << tempo:dezena_segundo.V[5]
+HEX3[6] << tempo:dezena_segundo.V[6]
+HEX4[0] << tempo_alarme:unidade_minuto.V[0]
+HEX4[1] << tempo_alarme:unidade_minuto.V[1]
+HEX4[2] << tempo_alarme:unidade_minuto.V[2]
+HEX4[3] << tempo_alarme:unidade_minuto.V[3]
+HEX4[4] << tempo_alarme:unidade_minuto.V[4]
+HEX4[5] << tempo_alarme:unidade_minuto.V[5]
+HEX4[6] << tempo_alarme:unidade_minuto.V[6]
+HEX5[0] << tempo_alarme:dezena_minuto.V[0]
+HEX5[1] << tempo_alarme:dezena_minuto.V[1]
+HEX5[2] << tempo_alarme:dezena_minuto.V[2]
+HEX5[3] << tempo_alarme:dezena_minuto.V[3]
+HEX5[4] << tempo_alarme:dezena_minuto.V[4]
+HEX5[5] << tempo_alarme:dezena_minuto.V[5]
+HEX5[6] << tempo_alarme:dezena_minuto.V[6]
+HEX6[0] << tempo_alarme:unidade_hora.V[0]
+HEX6[1] << tempo_alarme:unidade_hora.V[1]
+HEX6[2] << tempo_alarme:unidade_hora.V[2]
+HEX6[3] << tempo_alarme:unidade_hora.V[3]
+HEX6[4] << tempo_alarme:unidade_hora.V[4]
+HEX6[5] << tempo_alarme:unidade_hora.V[5]
+HEX6[6] << tempo_alarme:unidade_hora.V[6]
+HEX7[0] << tempo_alarme:dezena_hora.V[0]
+HEX7[1] << tempo_alarme:dezena_hora.V[1]
+HEX7[2] << tempo_alarme:dezena_hora.V[2]
+HEX7[3] << tempo_alarme:dezena_hora.V[3]
+HEX7[4] << tempo_alarme:dezena_hora.V[4]
+HEX7[5] << tempo_alarme:dezena_hora.V[5]
+HEX7[6] << tempo_alarme:dezena_hora.V[6]
 
 
 |FSMtopLevel|SM1:SM_relogio
@@ -164,6 +174,44 @@ saida[2] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 saida[3] <= saida.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|FSMtopLevel|countdownSM:SM_countdown
+reset => reg_fstate.state1.OUTPUTSELECT
+reset => reg_fstate.set_min.OUTPUTSELECT
+reset => reg_fstate.set_hora.OUTPUTSELECT
+reset => reg_fstate.count_down.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+reset => saida.OUTPUTSELECT
+clock => fstate~1.DATAIN
+en_count => process_1.IN0
+en_count => process_1.IN1
+en_count => process_1.IN1
+en_count => process_1.IN1
+en_count => process_1.IN1
+en_count => process_1.IN0
+en_count => process_1.IN0
+count_mode => process_1.IN0
+count_mode => process_1.IN0
+count_mode => process_1.IN1
+count_mode => process_1.IN1
+count_mode => process_1.IN0
+count_mode => process_1.IN0
+count_mode => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+h_m => process_1.IN1
+saida[0] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[1] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[2] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+saida[3] <= saida.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|mux1:mux_set_minuto
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
@@ -184,25 +232,6 @@ X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FSMtopLevel|mux1:mux_set_hora
-SEL => X.OUTPUTSELECT
-SEL => X.OUTPUTSELECT
-SEL => X.OUTPUTSELECT
-SEL => X.OUTPUTSELECT
-A[0] => X.DATAB
-A[1] => X.DATAB
-A[2] => X.DATAB
-A[3] => X.DATAB
-B[0] => X.DATAA
-B[1] => X.DATAA
-B[2] => X.DATAA
-B[3] => X.DATAA
-X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
-X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
-X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
-X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|FSMtopLevel|mux1:mux_set_hora2
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
@@ -289,20 +318,20 @@ output[3] <= output[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |FSMtopLevel|CountOneSec:counter
-speed => division[0].DATAIN
-speed => division[2].DATAIN
-speed => division[3].DATAIN
-speed => division[4].DATAIN
-speed => division[5].DATAIN
-speed => division[6].DATAIN
-speed => division[8].DATAIN
-speed => division[12].DATAIN
-speed => division[13].DATAIN
-speed => division[16].DATAIN
-speed => division[17].DATAIN
-speed => division[18].DATAIN
-speed => division[19].DATAIN
 speed => division[21].DATAIN
+speed => division[19].DATAIN
+speed => division[17].DATAIN
+speed => division[16].DATAIN
+speed => division[18].DATAIN
+speed => division[13].DATAIN
+speed => division[12].DATAIN
+speed => division[8].DATAIN
+speed => division[6].DATAIN
+speed => division[5].DATAIN
+speed => division[4].DATAIN
+speed => division[3].DATAIN
+speed => division[2].DATAIN
+speed => division[0].DATAIN
 clock => output[0]~reg0.CLK
 clock => output[1]~reg0.CLK
 clock => output[2]~reg0.CLK
@@ -359,62 +388,81 @@ clock => division[3].CLK
 clock => division[2].CLK
 clock => division[1].CLK
 clock => division[0].CLK
-reset => output[0]~reg0.ENA
-reset => division[0].ENA
-reset => division[1].ENA
-reset => division[2].ENA
-reset => division[3].ENA
-reset => division[4].ENA
-reset => division[5].ENA
-reset => division[6].ENA
-reset => division[7].ENA
-reset => division[8].ENA
-reset => division[9].ENA
-reset => division[10].ENA
-reset => division[11].ENA
-reset => division[12].ENA
-reset => division[13].ENA
-reset => division[14].ENA
-reset => division[15].ENA
-reset => division[16].ENA
-reset => division[17].ENA
-reset => division[18].ENA
-reset => division[19].ENA
-reset => division[20].ENA
-reset => division[21].ENA
-reset => division[22].ENA
-reset => division[23].ENA
-reset => division[24].ENA
-reset => division[25].ENA
-reset => temp[0].ENA
-reset => temp[1].ENA
-reset => temp[2].ENA
-reset => temp[3].ENA
-reset => temp[4].ENA
-reset => temp[5].ENA
-reset => temp[6].ENA
-reset => temp[7].ENA
-reset => temp[8].ENA
-reset => temp[9].ENA
-reset => temp[10].ENA
-reset => temp[11].ENA
-reset => temp[12].ENA
-reset => temp[13].ENA
-reset => temp[14].ENA
-reset => temp[15].ENA
-reset => temp[16].ENA
-reset => temp[17].ENA
-reset => temp[18].ENA
-reset => temp[19].ENA
-reset => temp[20].ENA
-reset => temp[21].ENA
-reset => temp[22].ENA
-reset => temp[23].ENA
-reset => temp[24].ENA
-reset => temp[25].ENA
-reset => output[3]~reg0.ENA
-reset => output[2]~reg0.ENA
-reset => output[1]~reg0.ENA
+output[0] <= output[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output[1] <= output[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output[2] <= output[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+output[3] <= output[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|CountOneMin:counter_min
+clock => output[0]~reg0.CLK
+clock => output[1]~reg0.CLK
+clock => output[2]~reg0.CLK
+clock => output[3]~reg0.CLK
+clock => temp2[0].CLK
+clock => temp2[1].CLK
+clock => temp2[2].CLK
+clock => temp2[3].CLK
+clock => temp2[4].CLK
+clock => temp2[5].CLK
+clock => temp[25].CLK
+clock => temp[24].CLK
+clock => temp[23].CLK
+clock => temp[22].CLK
+clock => temp[21].CLK
+clock => temp[20].CLK
+clock => temp[19].CLK
+clock => temp[18].CLK
+clock => temp[17].CLK
+clock => temp[16].CLK
+clock => temp[15].CLK
+clock => temp[14].CLK
+clock => temp[13].CLK
+clock => temp[12].CLK
+clock => temp[11].CLK
+clock => temp[10].CLK
+clock => temp[9].CLK
+clock => temp[8].CLK
+clock => temp[7].CLK
+clock => temp[6].CLK
+clock => temp[5].CLK
+clock => temp[4].CLK
+clock => temp[3].CLK
+clock => temp[2].CLK
+clock => temp[1].CLK
+clock => temp[0].CLK
+clock => division2[0].CLK
+clock => division2[1].CLK
+clock => division2[2].CLK
+clock => division2[3].CLK
+clock => division2[4].CLK
+clock => division2[5].CLK
+clock => division[25].CLK
+clock => division[24].CLK
+clock => division[23].CLK
+clock => division[22].CLK
+clock => division[21].CLK
+clock => division[20].CLK
+clock => division[19].CLK
+clock => division[18].CLK
+clock => division[17].CLK
+clock => division[16].CLK
+clock => division[15].CLK
+clock => division[14].CLK
+clock => division[13].CLK
+clock => division[12].CLK
+clock => division[11].CLK
+clock => division[10].CLK
+clock => division[9].CLK
+clock => division[8].CLK
+clock => division[7].CLK
+clock => division[6].CLK
+clock => division[5].CLK
+clock => division[4].CLK
+clock => division[3].CLK
+clock => division[2].CLK
+clock => division[1].CLK
+clock => division[0].CLK
 output[0] <= output[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 output[1] <= output[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 output[2] <= output[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -461,6 +509,26 @@ Sreg[1] <= registrador:reg.DOUT[1]
 Sreg[2] <= registrador:reg.DOUT[2]
 Sreg[3] <= registrador:reg.DOUT[3]
 EN => registrador:reg.ENABLE
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+dezena => display[3].OUTPUTSELECT
+dezena => display[2].OUTPUTSELECT
+dezena => display[1].OUTPUTSELECT
+dezena => display[0].OUTPUTSELECT
 
 
 |FSMtopLevel|tempo:unidade_segundo|registrador:reg
@@ -697,6 +765,26 @@ Sreg[1] <= registrador:reg.DOUT[1]
 Sreg[2] <= registrador:reg.DOUT[2]
 Sreg[3] <= registrador:reg.DOUT[3]
 EN => registrador:reg.ENABLE
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+count => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+alarm => display.OUTPUTSELECT
+dezena => display[3].OUTPUTSELECT
+dezena => display[2].OUTPUTSELECT
+dezena => display[1].OUTPUTSELECT
+dezena => display[0].OUTPUTSELECT
 
 
 |FSMtopLevel|tempo:dezena_segundo|registrador:reg
@@ -910,6 +998,7 @@ X[3] <= <GND>
 |FSMtopLevel|tempo_alarme:unidade_minuto
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
+CLOCK_50 => registrador:reg_countdown.CLK
 B[0] => ula:ULA.B[0]
 B[1] => ula:ULA.B[1]
 B[2] => ula:ULA.B[2]
@@ -929,17 +1018,24 @@ S[0] <= not2:saida.X[0]
 S[1] <= not2:saida.X[1]
 S[2] <= not2:saida.X[2]
 S[3] <= not2:saida.X[3]
-Sreg[0] <= mux1:MUX_REG.X[0]
-Sreg[1] <= mux1:MUX_REG.X[1]
-Sreg[2] <= mux1:MUX_REG.X[2]
-Sreg[3] <= mux1:MUX_REG.X[3]
+Sreg[0] <= mux1:MUX_REG_COUNT.X[0]
+Sreg[1] <= mux1:MUX_REG_COUNT.X[1]
+Sreg[2] <= mux1:MUX_REG_COUNT.X[2]
+Sreg[3] <= mux1:MUX_REG_COUNT.X[3]
 EN => registrador:reg.ENABLE
 EN_A => registrador:reg_alarme.ENABLE
-RST => registrador:reg_alarme.RST
+EN_C => registrador:reg_countdown.ENABLE
+RST_A => registrador:reg_alarme.RST
+RST_C => registrador:reg_countdown.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
+count_compare <= xor1:compare_count.X1
+pulse_minus => mux1:MUX_REG_COUNT.SEL
+pulse_minus => demux2:DEMUX_REG_COUNT.SEL
+pulse_minus => ula:ULA.Sel[0]
+en_counting => mux1:MUX_DISPLAY_COUNT.SEL
 btn1 => mux0:MUX_MUX.B
-alarm_compare <= xor1:compare.X1
+alarm_compare <= xor1:compare_alarm.X1
 
 
 |FSMtopLevel|tempo_alarme:unidade_minuto|registrador:reg
@@ -988,6 +1084,48 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
+|FSMtopLevel|tempo_alarme:unidade_minuto|registrador:reg_countdown
+DIN[0] => DOUT[0]~reg0.DATAIN
+DIN[1] => DOUT[1]~reg0.DATAIN
+DIN[2] => DOUT[2]~reg0.DATAIN
+DIN[3] => DOUT[3]~reg0.DATAIN
+DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT[3]~reg0.ENA
+ENABLE => DOUT[2]~reg0.ENA
+ENABLE => DOUT[1]~reg0.ENA
+ENABLE => DOUT[0]~reg0.ENA
+CLK => DOUT[0]~reg0.CLK
+CLK => DOUT[1]~reg0.CLK
+CLK => DOUT[2]~reg0.CLK
+CLK => DOUT[3]~reg0.CLK
+RST => DOUT[0]~reg0.ACLR
+RST => DOUT[1]~reg0.ACLR
+RST => DOUT[2]~reg0.ACLR
+RST => DOUT[3]~reg0.ACLR
+
+
+|FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_REG_COUNT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:unidade_minuto|mux0:MUX_MUX
 SEL => X.OUTPUTSELECT
 A => X.DATAB
@@ -1012,6 +1150,33 @@ X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT
+SEL => B[0]$latch.LATCH_ENABLE
+SEL => B[1]$latch.LATCH_ENABLE
+SEL => B[2]$latch.LATCH_ENABLE
+SEL => B[3]$latch.LATCH_ENABLE
+SEL => A[0]$latch.LATCH_ENABLE
+SEL => A[1]$latch.LATCH_ENABLE
+SEL => A[2]$latch.LATCH_ENABLE
+SEL => A[3]$latch.LATCH_ENABLE
+A[0] <= A[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[1] <= A[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[2] <= A[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[3] <= A[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= B[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= B[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+X[0] => B[0]$latch.DATAIN
+X[0] => A[0]$latch.DATAIN
+X[1] => B[1]$latch.DATAIN
+X[1] => A[1]$latch.DATAIN
+X[2] => B[2]$latch.DATAIN
+X[2] => A[2]$latch.DATAIN
+X[3] => B[3]$latch.DATAIN
+X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:unidade_minuto|demux2:DEMUX_REG
@@ -1042,6 +1207,25 @@ X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_DISPLAY_ALARM
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_DISPLAY_COUNT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
@@ -1245,7 +1429,19 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
-|FSMtopLevel|tempo_alarme:unidade_minuto|xor1:compare
+|FSMtopLevel|tempo_alarme:unidade_minuto|xor1:compare_alarm
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:unidade_minuto|xor1:compare_count
 A1[0] => process_0.IN0
 A1[1] => process_0.IN0
 A1[2] => process_0.IN0
@@ -1260,6 +1456,7 @@ X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 |FSMtopLevel|tempo_alarme:dezena_minuto
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
+CLOCK_50 => registrador:reg_countdown.CLK
 B[0] => ula:ULA.B[0]
 B[1] => ula:ULA.B[1]
 B[2] => ula:ULA.B[2]
@@ -1279,17 +1476,24 @@ S[0] <= not2:saida.X[0]
 S[1] <= not2:saida.X[1]
 S[2] <= not2:saida.X[2]
 S[3] <= not2:saida.X[3]
-Sreg[0] <= mux1:MUX_REG.X[0]
-Sreg[1] <= mux1:MUX_REG.X[1]
-Sreg[2] <= mux1:MUX_REG.X[2]
-Sreg[3] <= mux1:MUX_REG.X[3]
+Sreg[0] <= mux1:MUX_REG_COUNT.X[0]
+Sreg[1] <= mux1:MUX_REG_COUNT.X[1]
+Sreg[2] <= mux1:MUX_REG_COUNT.X[2]
+Sreg[3] <= mux1:MUX_REG_COUNT.X[3]
 EN => registrador:reg.ENABLE
 EN_A => registrador:reg_alarme.ENABLE
-RST => registrador:reg_alarme.RST
+EN_C => registrador:reg_countdown.ENABLE
+RST_A => registrador:reg_alarme.RST
+RST_C => registrador:reg_countdown.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
+count_compare <= xor1:compare_count.X1
+pulse_minus => mux1:MUX_REG_COUNT.SEL
+pulse_minus => demux2:DEMUX_REG_COUNT.SEL
+pulse_minus => ula:ULA.Sel[0]
+en_counting => mux1:MUX_DISPLAY_COUNT.SEL
 btn1 => mux0:MUX_MUX.B
-alarm_compare <= xor1:compare.X1
+alarm_compare <= xor1:compare_alarm.X1
 
 
 |FSMtopLevel|tempo_alarme:dezena_minuto|registrador:reg
@@ -1338,6 +1542,48 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
+|FSMtopLevel|tempo_alarme:dezena_minuto|registrador:reg_countdown
+DIN[0] => DOUT[0]~reg0.DATAIN
+DIN[1] => DOUT[1]~reg0.DATAIN
+DIN[2] => DOUT[2]~reg0.DATAIN
+DIN[3] => DOUT[3]~reg0.DATAIN
+DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT[3]~reg0.ENA
+ENABLE => DOUT[2]~reg0.ENA
+ENABLE => DOUT[1]~reg0.ENA
+ENABLE => DOUT[0]~reg0.ENA
+CLK => DOUT[0]~reg0.CLK
+CLK => DOUT[1]~reg0.CLK
+CLK => DOUT[2]~reg0.CLK
+CLK => DOUT[3]~reg0.CLK
+RST => DOUT[0]~reg0.ACLR
+RST => DOUT[1]~reg0.ACLR
+RST => DOUT[2]~reg0.ACLR
+RST => DOUT[3]~reg0.ACLR
+
+
+|FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_REG_COUNT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:dezena_minuto|mux0:MUX_MUX
 SEL => X.OUTPUTSELECT
 A => X.DATAB
@@ -1362,6 +1608,33 @@ X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT
+SEL => B[0]$latch.LATCH_ENABLE
+SEL => B[1]$latch.LATCH_ENABLE
+SEL => B[2]$latch.LATCH_ENABLE
+SEL => B[3]$latch.LATCH_ENABLE
+SEL => A[0]$latch.LATCH_ENABLE
+SEL => A[1]$latch.LATCH_ENABLE
+SEL => A[2]$latch.LATCH_ENABLE
+SEL => A[3]$latch.LATCH_ENABLE
+A[0] <= A[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[1] <= A[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[2] <= A[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[3] <= A[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= B[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= B[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+X[0] => B[0]$latch.DATAIN
+X[0] => A[0]$latch.DATAIN
+X[1] => B[1]$latch.DATAIN
+X[1] => A[1]$latch.DATAIN
+X[2] => B[2]$latch.DATAIN
+X[2] => A[2]$latch.DATAIN
+X[3] => B[3]$latch.DATAIN
+X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:dezena_minuto|demux2:DEMUX_REG
@@ -1392,6 +1665,25 @@ X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_DISPLAY_ALARM
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_DISPLAY_COUNT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
@@ -1595,7 +1887,19 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
-|FSMtopLevel|tempo_alarme:dezena_minuto|xor1:compare
+|FSMtopLevel|tempo_alarme:dezena_minuto|xor1:compare_alarm
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:dezena_minuto|xor1:compare_count
 A1[0] => process_0.IN0
 A1[1] => process_0.IN0
 A1[2] => process_0.IN0
@@ -1610,6 +1914,7 @@ X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 |FSMtopLevel|tempo_alarme:unidade_hora
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
+CLOCK_50 => registrador:reg_countdown.CLK
 B[0] => ula:ULA.B[0]
 B[1] => ula:ULA.B[1]
 B[2] => ula:ULA.B[2]
@@ -1629,17 +1934,24 @@ S[0] <= not2:saida.X[0]
 S[1] <= not2:saida.X[1]
 S[2] <= not2:saida.X[2]
 S[3] <= not2:saida.X[3]
-Sreg[0] <= mux1:MUX_REG.X[0]
-Sreg[1] <= mux1:MUX_REG.X[1]
-Sreg[2] <= mux1:MUX_REG.X[2]
-Sreg[3] <= mux1:MUX_REG.X[3]
+Sreg[0] <= mux1:MUX_REG_COUNT.X[0]
+Sreg[1] <= mux1:MUX_REG_COUNT.X[1]
+Sreg[2] <= mux1:MUX_REG_COUNT.X[2]
+Sreg[3] <= mux1:MUX_REG_COUNT.X[3]
 EN => registrador:reg.ENABLE
 EN_A => registrador:reg_alarme.ENABLE
-RST => registrador:reg_alarme.RST
+EN_C => registrador:reg_countdown.ENABLE
+RST_A => registrador:reg_alarme.RST
+RST_C => registrador:reg_countdown.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
+count_compare <= xor1:compare_count.X1
+pulse_minus => mux1:MUX_REG_COUNT.SEL
+pulse_minus => demux2:DEMUX_REG_COUNT.SEL
+pulse_minus => ula:ULA.Sel[0]
+en_counting => mux1:MUX_DISPLAY_COUNT.SEL
 btn1 => mux0:MUX_MUX.B
-alarm_compare <= xor1:compare.X1
+alarm_compare <= xor1:compare_alarm.X1
 
 
 |FSMtopLevel|tempo_alarme:unidade_hora|registrador:reg
@@ -1688,6 +2000,48 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
+|FSMtopLevel|tempo_alarme:unidade_hora|registrador:reg_countdown
+DIN[0] => DOUT[0]~reg0.DATAIN
+DIN[1] => DOUT[1]~reg0.DATAIN
+DIN[2] => DOUT[2]~reg0.DATAIN
+DIN[3] => DOUT[3]~reg0.DATAIN
+DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT[3]~reg0.ENA
+ENABLE => DOUT[2]~reg0.ENA
+ENABLE => DOUT[1]~reg0.ENA
+ENABLE => DOUT[0]~reg0.ENA
+CLK => DOUT[0]~reg0.CLK
+CLK => DOUT[1]~reg0.CLK
+CLK => DOUT[2]~reg0.CLK
+CLK => DOUT[3]~reg0.CLK
+RST => DOUT[0]~reg0.ACLR
+RST => DOUT[1]~reg0.ACLR
+RST => DOUT[2]~reg0.ACLR
+RST => DOUT[3]~reg0.ACLR
+
+
+|FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_REG_COUNT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:unidade_hora|mux0:MUX_MUX
 SEL => X.OUTPUTSELECT
 A => X.DATAB
@@ -1712,6 +2066,33 @@ X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT
+SEL => B[0]$latch.LATCH_ENABLE
+SEL => B[1]$latch.LATCH_ENABLE
+SEL => B[2]$latch.LATCH_ENABLE
+SEL => B[3]$latch.LATCH_ENABLE
+SEL => A[0]$latch.LATCH_ENABLE
+SEL => A[1]$latch.LATCH_ENABLE
+SEL => A[2]$latch.LATCH_ENABLE
+SEL => A[3]$latch.LATCH_ENABLE
+A[0] <= A[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[1] <= A[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[2] <= A[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[3] <= A[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= B[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= B[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+X[0] => B[0]$latch.DATAIN
+X[0] => A[0]$latch.DATAIN
+X[1] => B[1]$latch.DATAIN
+X[1] => A[1]$latch.DATAIN
+X[2] => B[2]$latch.DATAIN
+X[2] => A[2]$latch.DATAIN
+X[3] => B[3]$latch.DATAIN
+X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:unidade_hora|demux2:DEMUX_REG
@@ -1742,6 +2123,25 @@ X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_DISPLAY_ALARM
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_DISPLAY_COUNT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
@@ -1945,7 +2345,19 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
-|FSMtopLevel|tempo_alarme:unidade_hora|xor1:compare
+|FSMtopLevel|tempo_alarme:unidade_hora|xor1:compare_alarm
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:unidade_hora|xor1:compare_count
 A1[0] => process_0.IN0
 A1[1] => process_0.IN0
 A1[2] => process_0.IN0
@@ -1960,6 +2372,7 @@ X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
 |FSMtopLevel|tempo_alarme:dezena_hora
 CLOCK_50 => registrador:reg.CLK
 CLOCK_50 => registrador:reg_alarme.CLK
+CLOCK_50 => registrador:reg_countdown.CLK
 B[0] => ula:ULA.B[0]
 B[1] => ula:ULA.B[1]
 B[2] => ula:ULA.B[2]
@@ -1979,17 +2392,24 @@ S[0] <= not2:saida.X[0]
 S[1] <= not2:saida.X[1]
 S[2] <= not2:saida.X[2]
 S[3] <= not2:saida.X[3]
-Sreg[0] <= mux1:MUX_REG.X[0]
-Sreg[1] <= mux1:MUX_REG.X[1]
-Sreg[2] <= mux1:MUX_REG.X[2]
-Sreg[3] <= mux1:MUX_REG.X[3]
+Sreg[0] <= mux1:MUX_REG_COUNT.X[0]
+Sreg[1] <= mux1:MUX_REG_COUNT.X[1]
+Sreg[2] <= mux1:MUX_REG_COUNT.X[2]
+Sreg[3] <= mux1:MUX_REG_COUNT.X[3]
 EN => registrador:reg.ENABLE
 EN_A => registrador:reg_alarme.ENABLE
-RST => registrador:reg_alarme.RST
+EN_C => registrador:reg_countdown.ENABLE
+RST_A => registrador:reg_alarme.RST
+RST_C => registrador:reg_countdown.RST
 alarme_mode => mux0:MUX_MUX.SEL
 alarme_mode => mux1:MUX_DISPLAY_ALARM.SEL
+count_compare <= xor1:compare_count.X1
+pulse_minus => mux1:MUX_REG_COUNT.SEL
+pulse_minus => demux2:DEMUX_REG_COUNT.SEL
+pulse_minus => ula:ULA.Sel[0]
+en_counting => mux1:MUX_DISPLAY_COUNT.SEL
 btn1 => mux0:MUX_MUX.B
-alarm_compare <= xor1:compare.X1
+alarm_compare <= xor1:compare_alarm.X1
 
 
 |FSMtopLevel|tempo_alarme:dezena_hora|registrador:reg
@@ -2038,6 +2458,48 @@ RST => DOUT[2]~reg0.ACLR
 RST => DOUT[3]~reg0.ACLR
 
 
+|FSMtopLevel|tempo_alarme:dezena_hora|registrador:reg_countdown
+DIN[0] => DOUT[0]~reg0.DATAIN
+DIN[1] => DOUT[1]~reg0.DATAIN
+DIN[2] => DOUT[2]~reg0.DATAIN
+DIN[3] => DOUT[3]~reg0.DATAIN
+DOUT[0] <= DOUT[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[1] <= DOUT[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[2] <= DOUT[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+DOUT[3] <= DOUT[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ENABLE => DOUT[3]~reg0.ENA
+ENABLE => DOUT[2]~reg0.ENA
+ENABLE => DOUT[1]~reg0.ENA
+ENABLE => DOUT[0]~reg0.ENA
+CLK => DOUT[0]~reg0.CLK
+CLK => DOUT[1]~reg0.CLK
+CLK => DOUT[2]~reg0.CLK
+CLK => DOUT[3]~reg0.CLK
+RST => DOUT[0]~reg0.ACLR
+RST => DOUT[1]~reg0.ACLR
+RST => DOUT[2]~reg0.ACLR
+RST => DOUT[3]~reg0.ACLR
+
+
+|FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_REG_COUNT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |FSMtopLevel|tempo_alarme:dezena_hora|mux0:MUX_MUX
 SEL => X.OUTPUTSELECT
 A => X.DATAB
@@ -2062,6 +2524,33 @@ X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
 X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT
+SEL => B[0]$latch.LATCH_ENABLE
+SEL => B[1]$latch.LATCH_ENABLE
+SEL => B[2]$latch.LATCH_ENABLE
+SEL => B[3]$latch.LATCH_ENABLE
+SEL => A[0]$latch.LATCH_ENABLE
+SEL => A[1]$latch.LATCH_ENABLE
+SEL => A[2]$latch.LATCH_ENABLE
+SEL => A[3]$latch.LATCH_ENABLE
+A[0] <= A[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[1] <= A[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[2] <= A[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+A[3] <= A[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[0] <= B[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[1] <= B[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[2] <= B[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+B[3] <= B[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+X[0] => B[0]$latch.DATAIN
+X[0] => A[0]$latch.DATAIN
+X[1] => B[1]$latch.DATAIN
+X[1] => A[1]$latch.DATAIN
+X[2] => B[2]$latch.DATAIN
+X[2] => A[2]$latch.DATAIN
+X[3] => B[3]$latch.DATAIN
+X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:dezena_hora|demux2:DEMUX_REG
@@ -2092,6 +2581,25 @@ X[3] => A[3]$latch.DATAIN
 
 
 |FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_DISPLAY_ALARM
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+SEL => X.OUTPUTSELECT
+A[0] => X.DATAB
+A[1] => X.DATAB
+A[2] => X.DATAB
+A[3] => X.DATAB
+B[0] => X.DATAA
+B[1] => X.DATAA
+B[2] => X.DATAA
+B[3] => X.DATAA
+X[0] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[1] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[2] <= X.DB_MAX_OUTPUT_PORT_TYPE
+X[3] <= X.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_DISPLAY_COUNT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
 SEL => X.OUTPUTSELECT
@@ -2295,7 +2803,19 @@ X[2] <= <GND>
 X[3] <= <GND>
 
 
-|FSMtopLevel|tempo_alarme:dezena_hora|xor1:compare
+|FSMtopLevel|tempo_alarme:dezena_hora|xor1:compare_alarm
+A1[0] => process_0.IN0
+A1[1] => process_0.IN0
+A1[2] => process_0.IN0
+A1[3] => process_0.IN0
+A2[0] => process_0.IN1
+A2[1] => process_0.IN1
+A2[2] => process_0.IN1
+A2[3] => process_0.IN1
+X1 <= Equal0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FSMtopLevel|tempo_alarme:dezena_hora|xor1:compare_count
 A1[0] => process_0.IN0
 A1[1] => process_0.IN0
 A1[2] => process_0.IN0

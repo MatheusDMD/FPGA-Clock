@@ -1,5 +1,5 @@
 Analysis & Synthesis report for relogio
-Fri Oct  6 19:29:08 2017
+Sat Oct  7 00:41:55 2017
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -13,49 +13,57 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |FSMtopLevel|alarmSM:SM_alarm|fstate
-  9. State Machine - |FSMtopLevel|SM1:SM_relogio|fstate
- 10. User-Specified and Inferred Latches
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Parameter Settings for User Entity Instance: tempo:unidade_segundo|registrador:reg
- 14. Parameter Settings for User Entity Instance: tempo:unidade_segundo|ULA:ULA
- 15. Parameter Settings for User Entity Instance: tempo:dezena_segundo|registrador:reg
- 16. Parameter Settings for User Entity Instance: tempo:dezena_segundo|ULA:ULA
- 17. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|registrador:reg
- 18. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|registrador:reg_alarme
- 19. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|ULA:ULA
- 20. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|registrador:reg
- 21. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|registrador:reg_alarme
- 22. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|ULA:ULA
- 23. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|registrador:reg
- 24. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|registrador:reg_alarme
- 25. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|ULA:ULA
- 26. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|registrador:reg
- 27. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|registrador:reg_alarme
- 28. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|ULA:ULA
- 29. Port Connectivity Checks: "tempo_alarme:dezena_hora"
- 30. Port Connectivity Checks: "tempo_alarme:unidade_hora"
- 31. Port Connectivity Checks: "tempo_alarme:dezena_minuto"
- 32. Port Connectivity Checks: "tempo_alarme:unidade_minuto|conversorHex7Seg:display0"
- 33. Port Connectivity Checks: "tempo_alarme:unidade_minuto|mux2:MUX1"
- 34. Port Connectivity Checks: "tempo_alarme:unidade_minuto|ULA:ULA"
- 35. Port Connectivity Checks: "tempo_alarme:unidade_minuto|mux0:MUX_MUX"
- 36. Port Connectivity Checks: "tempo_alarme:unidade_minuto|registrador:reg"
- 37. Port Connectivity Checks: "tempo_alarme:unidade_minuto"
- 38. Port Connectivity Checks: "tempo:dezena_segundo"
- 39. Port Connectivity Checks: "tempo:unidade_segundo|conversorHex7Seg:display0"
- 40. Port Connectivity Checks: "tempo:unidade_segundo|mux2:MUX1"
- 41. Port Connectivity Checks: "tempo:unidade_segundo|ULA:ULA"
- 42. Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg"
- 43. Port Connectivity Checks: "tempo:unidade_segundo"
- 44. Port Connectivity Checks: "CountOneSec:counter"
- 45. Port Connectivity Checks: "mux1:mux_set_hora2"
- 46. Port Connectivity Checks: "alarmSM:SM_alarm"
- 47. Port Connectivity Checks: "SM1:SM_relogio"
- 48. Post-Synthesis Netlist Statistics for Top Partition
- 49. Elapsed Time Per Partition
- 50. Analysis & Synthesis Messages
+  8. State Machine - |FSMtopLevel|countdownSM:SM_countdown|fstate
+  9. State Machine - |FSMtopLevel|alarmSM:SM_alarm|fstate
+ 10. State Machine - |FSMtopLevel|SM1:SM_relogio|fstate
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: tempo:unidade_segundo|registrador:reg
+ 16. Parameter Settings for User Entity Instance: tempo:unidade_segundo|ULA:ULA
+ 17. Parameter Settings for User Entity Instance: tempo:dezena_segundo|registrador:reg
+ 18. Parameter Settings for User Entity Instance: tempo:dezena_segundo|ULA:ULA
+ 19. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|registrador:reg
+ 20. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|registrador:reg_alarme
+ 21. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|registrador:reg_countdown
+ 22. Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|ULA:ULA
+ 23. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|registrador:reg
+ 24. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|registrador:reg_alarme
+ 25. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|registrador:reg_countdown
+ 26. Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|ULA:ULA
+ 27. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|registrador:reg
+ 28. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|registrador:reg_alarme
+ 29. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|registrador:reg_countdown
+ 30. Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|ULA:ULA
+ 31. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|registrador:reg
+ 32. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|registrador:reg_alarme
+ 33. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|registrador:reg_countdown
+ 34. Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|ULA:ULA
+ 35. Port Connectivity Checks: "tempo_alarme:dezena_hora"
+ 36. Port Connectivity Checks: "tempo_alarme:unidade_hora"
+ 37. Port Connectivity Checks: "tempo_alarme:dezena_minuto"
+ 38. Port Connectivity Checks: "tempo_alarme:unidade_minuto|xor1:compare_count"
+ 39. Port Connectivity Checks: "tempo_alarme:unidade_minuto|conversorHex7Seg:display0"
+ 40. Port Connectivity Checks: "tempo_alarme:unidade_minuto|mux2:MUX1"
+ 41. Port Connectivity Checks: "tempo_alarme:unidade_minuto|ULA:ULA"
+ 42. Port Connectivity Checks: "tempo_alarme:unidade_minuto|mux0:MUX_MUX"
+ 43. Port Connectivity Checks: "tempo_alarme:unidade_minuto|registrador:reg"
+ 44. Port Connectivity Checks: "tempo_alarme:unidade_minuto"
+ 45. Port Connectivity Checks: "tempo:dezena_segundo"
+ 46. Port Connectivity Checks: "tempo:unidade_segundo|conversorHex7Seg:display0"
+ 47. Port Connectivity Checks: "tempo:unidade_segundo|mux2:MUX1"
+ 48. Port Connectivity Checks: "tempo:unidade_segundo|ULA:ULA"
+ 49. Port Connectivity Checks: "tempo:unidade_segundo|registrador:reg"
+ 50. Port Connectivity Checks: "tempo:unidade_segundo"
+ 51. Port Connectivity Checks: "CountOneMin:counter_min"
+ 52. Port Connectivity Checks: "mux1:mux_set_hora"
+ 53. Port Connectivity Checks: "countdownSM:SM_countdown"
+ 54. Port Connectivity Checks: "alarmSM:SM_alarm"
+ 55. Port Connectivity Checks: "SM1:SM_relogio"
+ 56. Post-Synthesis Netlist Statistics for Top Partition
+ 57. Elapsed Time Per Partition
+ 58. Analysis & Synthesis Messages
 
 
 
@@ -82,15 +90,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct  6 19:29:08 2017       ;
+; Analysis & Synthesis Status        ; Successful - Sat Oct  7 00:41:55 2017       ;
 ; Quartus Prime Version              ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; relogio                                     ;
 ; Top-level Entity Name              ; FSMtopLevel                                 ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 369                                         ;
-;     Total combinational functions  ; 366                                         ;
-;     Dedicated logic registers      ; 103                                         ;
-; Total registers                    ; 103                                         ;
+; Total logic elements               ; 429                                         ;
+;     Total combinational functions  ; 426                                         ;
+;     Dedicated logic registers      ; 155                                         ;
+; Total registers                    ; 155                                         ;
 ; Total pins                         ; 106                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -198,7 +206,8 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -225,6 +234,8 @@ agreement for further details.
 ; mux0.vhd                         ; yes             ; User VHDL File  ; /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/mux0.vhd             ;         ;
 ; xor1.vhd                         ; yes             ; User VHDL File  ; /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/xor1.vhd             ;         ;
 ; and2.vhd                         ; yes             ; User VHDL File  ; /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/and2.vhd             ;         ;
+; countdownSM.vhd                  ; yes             ; User VHDL File  ; /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/countdownSM.vhd      ;         ;
+; CountOneMin.vhd                  ; yes             ; User VHDL File  ; /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/CountOneMin.vhd      ;         ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------+---------+
 
 
@@ -233,20 +244,20 @@ agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 369            ;
+; Estimated Total logic elements              ; 429            ;
 ;                                             ;                ;
-; Total combinational functions               ; 366            ;
+; Total combinational functions               ; 426            ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 191            ;
-;     -- 3 input functions                    ; 83             ;
-;     -- <=2 input functions                  ; 92             ;
+;     -- 4 input functions                    ; 186            ;
+;     -- 3 input functions                    ; 139            ;
+;     -- <=2 input functions                  ; 101            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 316            ;
-;     -- arithmetic mode                      ; 50             ;
+;     -- normal mode                          ; 346            ;
+;     -- arithmetic mode                      ; 80             ;
 ;                                             ;                ;
-; Total registers                             ; 103            ;
-;     -- Dedicated logic registers            ; 103            ;
+; Total registers                             ; 155            ;
+;     -- Dedicated logic registers            ; 155            ;
 ;     -- I/O registers                        ; 0              ;
 ;                                             ;                ;
 ; I/O pins                                    ; 106            ;
@@ -254,9 +265,9 @@ agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 103            ;
-; Total fan-out                               ; 1639           ;
-; Average fan-out                             ; 2.41           ;
+; Maximum fan-out                             ; 155            ;
+; Total fan-out                               ; 1971           ;
+; Average fan-out                             ; 2.49           ;
 +---------------------------------------------+----------------+
 
 
@@ -265,67 +276,87 @@ agreement for further details.
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+------------------+--------------+
 ; Compilation Hierarchy Node        ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                ; Entity Name      ; Library Name ;
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+------------------+--------------+
-; |FSMtopLevel                      ; 366 (14)            ; 103 (0)                   ; 0           ; 0            ; 0       ; 0         ; 106  ; 0            ; |FSMtopLevel                                                       ; FSMtopLevel      ; work         ;
-;    |CountOneSec:counter|          ; 38 (38)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneSec:counter                                   ; CountOneSec      ; work         ;
+; |FSMtopLevel                      ; 426 (16)            ; 155 (0)                   ; 0           ; 0            ; 0       ; 0         ; 106  ; 0            ; |FSMtopLevel                                                       ; FSMtopLevel      ; work         ;
+;    |CountOneMin:counter_min|      ; 50 (50)             ; 34 (34)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneMin:counter_min                               ; CountOneMin      ; work         ;
+;    |CountOneSec:counter|          ; 38 (38)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|CountOneSec:counter                                   ; CountOneSec      ; work         ;
 ;    |SM1:SM_relogio|               ; 2 (2)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|SM1:SM_relogio                                        ; SM1              ; work         ;
 ;    |alarmSM:SM_alarm|             ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|alarmSM:SM_alarm                                      ; alarmSM          ; work         ;
+;    |countdownSM:SM_countdown|     ; 6 (6)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|countdownSM:SM_countdown                              ; countdownSM      ; work         ;
 ;    |debounce:btn_set|             ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|debounce:btn_set                                      ; debounce         ; work         ;
-;    |mux0:mux_alarme_mode2|        ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|mux0:mux_alarme_mode2                                 ; mux0             ; work         ;
-;    |mux1:mux_set_hora2|           ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|mux1:mux_set_hora2                                    ; mux1             ; work         ;
-;    |mux1:mux_set_minuto|          ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|mux1:mux_set_minuto                                   ; mux1             ; work         ;
-;    |tempo:dezena_segundo|         ; 21 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo                                  ; tempo            ; work         ;
+;    |mux1:mux_set_minuto|          ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|mux1:mux_set_minuto                                   ; mux1             ; work         ;
+;    |tempo:dezena_segundo|         ; 31 (1)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo                                  ; tempo            ; work         ;
 ;       |ULA:ULA|                   ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|ULA:ULA                          ; ULA              ; work         ;
-;       |conversorHex7Seg:display0| ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|conversorHex7Seg:display0        ; conversorHex7Seg ; work         ;
+;       |conversorHex7Seg:display0| ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|conversorHex7Seg:display0        ; conversorHex7Seg ; work         ;
 ;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|mux2:MUX1                        ; mux2             ; work         ;
 ;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|registrador:reg                  ; registrador      ; work         ;
-;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|xor2:XOR1                        ; xor2             ; work         ;
-;    |tempo:unidade_segundo|        ; 20 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo                                 ; tempo            ; work         ;
+;       |xor2:XOR1|                 ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:dezena_segundo|xor2:XOR1                        ; xor2             ; work         ;
+;    |tempo:unidade_segundo|        ; 30 (0)              ; 4 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo                                 ; tempo            ; work         ;
 ;       |ULA:ULA|                   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|ULA:ULA                         ; ULA              ; work         ;
-;       |conversorHex7Seg:display0| ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|conversorHex7Seg:display0       ; conversorHex7Seg ; work         ;
+;       |conversorHex7Seg:display0| ; 23 (23)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|conversorHex7Seg:display0       ; conversorHex7Seg ; work         ;
 ;       |mux2:MUX1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|mux2:MUX1                       ; mux2             ; work         ;
 ;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|registrador:reg                 ; registrador      ; work         ;
 ;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo:unidade_segundo|xor2:XOR1                       ; xor2             ; work         ;
-;    |tempo_alarme:dezena_hora|     ; 49 (0)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora                              ; tempo_alarme     ; work         ;
-;       |ULA:ULA|                   ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|ULA:ULA                      ; ULA              ; work         ;
-;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|conversorHex7Seg:display0    ; conversorHex7Seg ; work         ;
+;    |tempo_alarme:dezena_hora|     ; 52 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora                              ; tempo_alarme     ; work         ;
+;       |ULA:ULA|                   ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|ULA:ULA                      ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|conversorHex7Seg:display0    ; conversorHex7Seg ; work         ;
+;       |demux2:DEMUX_REG_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT       ; demux2           ; work         ;
 ;       |demux2:DEMUX_REG|          ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|demux2:DEMUX_REG             ; demux2           ; work         ;
-;       |mux1:MUX_DISPLAY_ALARM|    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_DISPLAY_ALARM       ; mux1             ; work         ;
-;       |mux1:MUX_REG|              ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_REG                 ; mux1             ; work         ;
+;       |mux1:MUX_DISPLAY_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_DISPLAY_COUNT       ; mux1             ; work         ;
+;       |mux1:MUX_REG_COUNT|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_REG_COUNT           ; mux1             ; work         ;
 ;       |mux2:MUX1|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|mux2:MUX1                    ; mux2             ; work         ;
 ;       |registrador:reg_alarme|    ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|registrador:reg_alarme       ; registrador      ; work         ;
+;       |registrador:reg_countdown| ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|registrador:reg_countdown    ; registrador      ; work         ;
 ;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_hora|registrador:reg              ; registrador      ; work         ;
-;    |tempo_alarme:dezena_minuto|   ; 45 (0)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto                            ; tempo_alarme     ; work         ;
-;       |ULA:ULA|                   ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|ULA:ULA                    ; ULA              ; work         ;
-;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|conversorHex7Seg:display0  ; conversorHex7Seg ; work         ;
+;    |tempo_alarme:dezena_minuto|   ; 51 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto                            ; tempo_alarme     ; work         ;
+;       |ULA:ULA|                   ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|ULA:ULA                    ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|conversorHex7Seg:display0  ; conversorHex7Seg ; work         ;
+;       |demux2:DEMUX_REG_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT     ; demux2           ; work         ;
 ;       |demux2:DEMUX_REG|          ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|demux2:DEMUX_REG           ; demux2           ; work         ;
-;       |mux1:MUX_DISPLAY_ALARM|    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_DISPLAY_ALARM     ; mux1             ; work         ;
-;       |mux1:MUX_REG|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_REG               ; mux1             ; work         ;
-;       |mux2:MUX1|                 ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux2:MUX1                  ; mux2             ; work         ;
+;       |mux1:MUX_DISPLAY_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_DISPLAY_COUNT     ; mux1             ; work         ;
+;       |mux1:MUX_REG_COUNT|        ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_REG_COUNT         ; mux1             ; work         ;
+;       |mux2:MUX1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux2:MUX1                  ; mux2             ; work         ;
 ;       |registrador:reg_alarme|    ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|registrador:reg_alarme     ; registrador      ; work         ;
+;       |registrador:reg_countdown| ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|registrador:reg_countdown  ; registrador      ; work         ;
 ;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:dezena_minuto|registrador:reg            ; registrador      ; work         ;
-;    |tempo_alarme:unidade_hora|    ; 54 (0)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora                             ; tempo_alarme     ; work         ;
-;       |ULA:ULA|                   ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|ULA:ULA                     ; ULA              ; work         ;
-;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|conversorHex7Seg:display0   ; conversorHex7Seg ; work         ;
+;    |tempo_alarme:unidade_hora|    ; 48 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora                             ; tempo_alarme     ; work         ;
+;       |conversorHex7Seg:display0| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|conversorHex7Seg:display0   ; conversorHex7Seg ; work         ;
+;       |demux2:DEMUX_REG_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT      ; demux2           ; work         ;
 ;       |demux2:DEMUX_REG|          ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|demux2:DEMUX_REG            ; demux2           ; work         ;
-;       |mux1:MUX_DISPLAY_ALARM|    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_DISPLAY_ALARM      ; mux1             ; work         ;
-;       |mux1:MUX_REG|              ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_REG                ; mux1             ; work         ;
+;       |mux1:MUX_DISPLAY_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_DISPLAY_COUNT      ; mux1             ; work         ;
+;       |mux1:MUX_REG_COUNT|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|mux1:MUX_REG_COUNT          ; mux1             ; work         ;
 ;       |mux2:MUX1|                 ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|mux2:MUX1                   ; mux2             ; work         ;
 ;       |registrador:reg_alarme|    ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|registrador:reg_alarme      ; registrador      ; work         ;
+;       |registrador:reg_countdown| ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|registrador:reg_countdown   ; registrador      ; work         ;
 ;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|registrador:reg             ; registrador      ; work         ;
-;       |xor2:XOR1|                 ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|xor2:XOR1                   ; xor2             ; work         ;
-;    |tempo_alarme:unidade_minuto|  ; 51 (0)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto                           ; tempo_alarme     ; work         ;
-;       |ULA:ULA|                   ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|ULA:ULA                   ; ULA              ; work         ;
-;       |conversorHex7Seg:display0| ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|conversorHex7Seg:display0 ; conversorHex7Seg ; work         ;
+;       |xor2:XOR1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_hora|xor2:XOR1                   ; xor2             ; work         ;
+;    |tempo_alarme:unidade_minuto|  ; 50 (0)              ; 12 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto                           ; tempo_alarme     ; work         ;
+;       |ULA:ULA|                   ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|ULA:ULA                   ; ULA              ; work         ;
+;       |conversorHex7Seg:display0| ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|conversorHex7Seg:display0 ; conversorHex7Seg ; work         ;
+;       |demux2:DEMUX_REG_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT    ; demux2           ; work         ;
 ;       |demux2:DEMUX_REG|          ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|demux2:DEMUX_REG          ; demux2           ; work         ;
 ;       |mux0:MUX_MUX|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|mux0:MUX_MUX              ; mux0             ; work         ;
-;       |mux1:MUX_DISPLAY_ALARM|    ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_DISPLAY_ALARM    ; mux1             ; work         ;
-;       |mux1:MUX_REG|              ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_REG              ; mux1             ; work         ;
+;       |mux1:MUX_DISPLAY_COUNT|    ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_DISPLAY_COUNT    ; mux1             ; work         ;
+;       |mux1:MUX_REG_COUNT|        ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|mux1:MUX_REG_COUNT        ; mux1             ; work         ;
 ;       |mux2:MUX1|                 ; 6 (6)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|mux2:MUX1                 ; mux2             ; work         ;
 ;       |registrador:reg_alarme|    ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|registrador:reg_alarme    ; registrador      ; work         ;
+;       |registrador:reg_countdown| ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|registrador:reg_countdown ; registrador      ; work         ;
 ;       |registrador:reg|           ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|registrador:reg           ; registrador      ; work         ;
-;       |xor2:XOR1|                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|xor2:XOR1                 ; xor2             ; work         ;
+;       |xor2:XOR1|                 ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |FSMtopLevel|tempo_alarme:unidade_minuto|xor2:XOR1                 ; xor2             ; work         ;
 +-----------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------+
+; State Machine - |FSMtopLevel|countdownSM:SM_countdown|fstate                             ;
++-------------------+-------------------+-----------------+----------------+---------------+
+; Name              ; fstate.count_down ; fstate.set_hora ; fstate.set_min ; fstate.state1 ;
++-------------------+-------------------+-----------------+----------------+---------------+
+; fstate.state1     ; 0                 ; 0               ; 0              ; 0             ;
+; fstate.set_min    ; 0                 ; 0               ; 1              ; 1             ;
+; fstate.set_hora   ; 0                 ; 1               ; 0              ; 1             ;
+; fstate.count_down ; 1                 ; 0               ; 0              ; 1             ;
++-------------------+-------------------+-----------------+----------------+---------------+
 
 
 Encoding Type:  One-Hot
@@ -353,63 +384,115 @@ Encoding Type:  One-Hot
 +----------------+---------------+---------------+----------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                       ;
-+-----------------------------------------------------+--------------------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal                        ; Free of Timing Hazards ;
-+-----------------------------------------------------+--------------------------------------------+------------------------+
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[0]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[0]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[1]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[1]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[2]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[2]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[3]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[3]   ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[0]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[0]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[1]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[1]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[2]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[2]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[3]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[3]    ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[0]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[0]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[1]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[1]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[2]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[2]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[3]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[3]     ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[0]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[0]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[1]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[1]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[2]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[2]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[3]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[3]      ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
-; Number of user-specified and inferred latches = 32  ;                                            ;                        ;
-+-----------------------------------------------------+--------------------------------------------+------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                           ;
++---------------------------------------------------------+--------------------------------------------+------------------------+
+; Latch Name                                              ; Latch Enable Signal                        ; Free of Timing Hazards ;
++---------------------------------------------------------+--------------------------------------------+------------------------+
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[0]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[0]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[1]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[1]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[2]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[2]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[3]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[3]       ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[0]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[0]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[1]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[1]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[2]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[2]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[3]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[3]        ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[0]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[0]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[1]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[1]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[2]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[2]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[3]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[3]         ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[0]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[0]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[1]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[1]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[2]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[2]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[3]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[3]          ; tempo_alarme:unidade_minuto|mux0:MUX_MUX|X ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|B[1] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|B[3] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|B[0] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|B[2] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|B[1]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|B[3]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|B[0]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|B[2]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|B[1]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|B[3]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|B[0]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|B[2]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|B[1]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|B[3]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|B[0]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|B[2]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|A[0] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|A[1] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|A[2] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT|A[3] ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|A[0]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|A[1]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|A[2]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_minuto|demux2:DEMUX_REG_COUNT|A[3]  ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|A[0]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|A[1]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|A[2]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:unidade_hora|demux2:DEMUX_REG_COUNT|A[3]   ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|A[0]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|A[1]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|A[2]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; tempo_alarme:dezena_hora|demux2:DEMUX_REG_COUNT|A[3]    ; CountOneMin:counter_min|output[0]          ; yes                    ;
+; Number of user-specified and inferred latches = 64      ;                                            ;                        ;
++---------------------------------------------------------+--------------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                 ;
-+-----------------------------------------------------+----------------------------------------------+
-; Register name                                       ; Reason for Removal                           ;
-+-----------------------------------------------------+----------------------------------------------+
-; CountOneSec:counter|division[1,7,9,14,15,20,22..25] ; Stuck at GND due to stuck port data_in       ;
-; CountOneSec:counter|output[1..3]                    ; Stuck at GND due to stuck port data_in       ;
-; CountOneSec:counter|division[11]                    ; Merged with CountOneSec:counter|division[10] ;
-; debounce:btn_set|output[2,3]                        ; Merged with debounce:btn_set|output[1]       ;
-; CountOneSec:counter|division[2..6,8,12,13,18]       ; Merged with CountOneSec:counter|division[0]  ;
-; CountOneSec:counter|division[17,19,21]              ; Merged with CountOneSec:counter|division[16] ;
-; debounce:btn_set|output[1]                          ; Stuck at GND due to stuck port data_in       ;
-; alarmSM:SM_alarm|fstate.wait_alarm                  ; Lost fanout                                  ;
-; Total Number of Removed Registers = 30              ;                                              ;
-+-----------------------------------------------------+----------------------------------------------+
++----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                       ;
++-------------------------------------------------------+--------------------------------------------------+
+; Register name                                         ; Reason for Removal                               ;
++-------------------------------------------------------+--------------------------------------------------+
+; CountOneMin:counter_min|division2[0,1]                ; Stuck at GND due to stuck port data_in           ;
+; CountOneMin:counter_min|division[1,7,9,14..17,19..24] ; Stuck at GND due to stuck port data_in           ;
+; CountOneSec:counter|output[1..3]                      ; Stuck at GND due to stuck port data_in           ;
+; CountOneSec:counter|division[1,7,9,14,15,20,22..25]   ; Stuck at GND due to stuck port data_in           ;
+; CountOneMin:counter_min|division2[3]                  ; Merged with CountOneMin:counter_min|division2[4] ;
+; CountOneMin:counter_min|division2[4]                  ; Merged with CountOneMin:counter_min|division2[5] ;
+; CountOneMin:counter_min|division2[5]                  ; Merged with CountOneMin:counter_min|division[25] ;
+; CountOneMin:counter_min|division[25]                  ; Merged with CountOneMin:counter_min|division[18] ;
+; CountOneMin:counter_min|division[18]                  ; Merged with CountOneMin:counter_min|division[13] ;
+; CountOneMin:counter_min|division[13]                  ; Merged with CountOneMin:counter_min|division[12] ;
+; CountOneMin:counter_min|division[12]                  ; Merged with CountOneMin:counter_min|division[11] ;
+; CountOneMin:counter_min|division[11]                  ; Merged with CountOneMin:counter_min|division2[2] ;
+; CountOneMin:counter_min|division2[2]                  ; Merged with CountOneMin:counter_min|division[8]  ;
+; CountOneMin:counter_min|division[8]                   ; Merged with CountOneMin:counter_min|division[6]  ;
+; CountOneMin:counter_min|division[6]                   ; Merged with CountOneMin:counter_min|division[5]  ;
+; CountOneMin:counter_min|division[5]                   ; Merged with CountOneMin:counter_min|division[4]  ;
+; CountOneMin:counter_min|division[4]                   ; Merged with CountOneMin:counter_min|division[3]  ;
+; CountOneMin:counter_min|division[3]                   ; Merged with CountOneMin:counter_min|division[2]  ;
+; CountOneMin:counter_min|division[2]                   ; Merged with CountOneMin:counter_min|division[0]  ;
+; CountOneMin:counter_min|division[0]                   ; Merged with CountOneSec:counter|division[11]     ;
+; CountOneSec:counter|division[11]                      ; Merged with CountOneSec:counter|division[10]     ;
+; CountOneSec:counter|division[10]                      ; Merged with CountOneMin:counter_min|division[10] ;
+; CountOneSec:counter|division[2..6,8,12,13,18]         ; Merged with CountOneSec:counter|division[0]      ;
+; CountOneSec:counter|division[17,19,21]                ; Merged with CountOneSec:counter|division[16]     ;
+; debounce:btn_set|output[2,3]                          ; Merged with debounce:btn_set|output[1]           ;
+; debounce:btn_set|output[1]                            ; Stuck at GND due to stuck port data_in           ;
+; countdownSM:SM_countdown|fstate.count_down            ; Stuck at GND due to stuck port data_in           ;
+; alarmSM:SM_alarm|fstate.wait_alarm                    ; Lost fanout                                      ;
+; Total Number of Removed Registers = 63                ;                                                  ;
++-------------------------------------------------------+--------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -417,14 +500,25 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 103   ;
-; Number of registers using Synchronous Clear  ; 26    ;
+; Total registers                              ; 155   ;
+; Number of registers using Synchronous Clear  ; 52    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 42    ;
+; Number of registers using Asynchronous Clear ; 58    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 13    ;
+; Number of registers using Clock Enable       ; 35    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |FSMtopLevel|tempo:dezena_segundo|display                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |FSMtopLevel|tempo_alarme:dezena_minuto|mux1:MUX_DISPLAY_COUNT|X[0] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |FSMtopLevel|tempo_alarme:dezena_hora|mux1:MUX_REG_COUNT|X[0]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------+
@@ -487,6 +581,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|registrador:reg_countdown ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                            ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: tempo_alarme:unidade_minuto|ULA:ULA ;
 +----------------+-------+---------------------------------------------------------+
@@ -514,6 +618,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-----------------------------------------------------------------------+
 ; larguradados   ; 4     ; Signed Integer                                                        ;
 +----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo_alarme:dezena_minuto|registrador:reg_countdown ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -547,6 +661,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|registrador:reg_countdown ;
++----------------+-------+-------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                    ;
++----------------+-------+-------------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                          ;
++----------------+-------+-------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +--------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: tempo_alarme:unidade_hora|ULA:ULA ;
 +----------------+-------+-------------------------------------------------------+
@@ -577,6 +701,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|registrador:reg_countdown ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: tempo_alarme:dezena_hora|ULA:ULA ;
 +----------------+-------+------------------------------------------------------+
@@ -587,42 +721,55 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tempo_alarme:dezena_hora"                                                               ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; cv[1..0] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cv[3..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; s        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; en       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; en_a     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo_alarme:dezena_hora"                                                                    ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[1..0]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[3..2]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; s             ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en            ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; en_a          ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; count_compare ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tempo_alarme:unidade_hora"                                                           ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; en    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo_alarme:unidade_hora"                                                                   ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; b             ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[0]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en            ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; count_compare ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tempo_alarme:dezena_minuto"                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port     ; Type   ; Severity ; Details                                                                             ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
-; cv[2..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cv[3]    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; cv[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
-; sreg     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; en       ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; en_a     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+----------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo_alarme:dezena_minuto"                                                                  ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[2..1]      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[3]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[0]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en            ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; en_a          ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; count_compare ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo_alarme:unidade_minuto|xor1:compare_count" ;
++------+-------+----------+--------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                          ;
++------+-------+----------+--------------------------------------------------+
+; a2   ; Input ; Info     ; Stuck at GND                                     ;
++------+-------+----------+--------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------+
@@ -630,6 +777,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+-------+----------+-----------------------------------------------------+
 ; Port     ; Type  ; Severity ; Details                                             ;
 +----------+-------+----------+-----------------------------------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND                                        ;
 ; negativo ; Input ; Info     ; Stuck at GND                                        ;
 ; overflow ; Input ; Info     ; Stuck at GND                                        ;
 +----------+-------+----------+-----------------------------------------------------+
@@ -644,13 +792,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-----------------------------------------+
 
 
-+-----------------------------------------------------------------+
-; Port Connectivity Checks: "tempo_alarme:unidade_minuto|ULA:ULA" ;
-+------+-------+----------+---------------------------------------+
-; Port ; Type  ; Severity ; Details                               ;
-+------+-------+----------+---------------------------------------+
-; sel  ; Input ; Info     ; Stuck at GND                          ;
-+------+-------+----------+---------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo_alarme:unidade_minuto|ULA:ULA"                                                    ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; sel[1]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------+
@@ -671,18 +820,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-----------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tempo_alarme:unidade_minuto"                                                         ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; cv[3] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cv[2] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; cv[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; en    ; Input  ; Info     ; Stuck at VCC                                                                        ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo_alarme:unidade_minuto"                                                                 ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[3]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[2]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[1]         ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[0]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en            ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; count_compare ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------+
@@ -695,6 +845,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; cv[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
 ; sreg     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; en       ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; dezena   ; Input  ; Info     ; Stuck at VCC                                                                        ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -735,35 +886,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+-------+----------+-----------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "tempo:unidade_segundo"                                                               ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; cv[3] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cv[2] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; cv[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cv[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; sreg  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "tempo:unidade_segundo"                                                                ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; cv[3]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[2]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; cv[1]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cv[0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; sreg   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; dezena ; Input  ; Info     ; Stuck at GND                                                                        ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------+
-; Port Connectivity Checks: "CountOneSec:counter" ;
-+-------+-------+----------+----------------------+
-; Port  ; Type  ; Severity ; Details              ;
-+-------+-------+----------+----------------------+
-; reset ; Input ; Info     ; Stuck at GND         ;
-+-------+-------+----------+----------------------+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CountOneMin:counter_min"                                                                    ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; output[3..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+------------------------------------------------+
-; Port Connectivity Checks: "mux1:mux_set_hora2" ;
-+------+-------+----------+----------------------+
-; Port ; Type  ; Severity ; Details              ;
-+------+-------+----------+----------------------+
-; b    ; Input ; Info     ; Stuck at GND         ;
-+------+-------+----------+----------------------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux1:mux_set_hora"                                                                  ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; x    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "countdownSM:SM_countdown" ;
++----------+-------+----------+------------------------+
+; Port     ; Type  ; Severity ; Details                ;
++----------+-------+----------+------------------------+
+; reset    ; Input ; Info     ; Stuck at GND           ;
+; en_count ; Input ; Info     ; Stuck at GND           ;
++----------+-------+----------+------------------------+
 
 
 +----------------------------------------------+
@@ -790,24 +952,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 106                         ;
-; cycloneiii_ff         ; 103                         ;
+; cycloneiii_ff         ; 155                         ;
 ;     CLR               ; 34                          ;
-;     ENA               ; 5                           ;
-;     ENA CLR           ; 8                           ;
-;     SCLR              ; 26                          ;
-;     plain             ; 30                          ;
-; cycloneiii_lcell_comb ; 368                         ;
-;     arith             ; 50                          ;
-;         2 data inputs ; 50                          ;
-;     normal            ; 318                         ;
+;     ENA               ; 11                          ;
+;     ENA CLR           ; 24                          ;
+;     SCLR              ; 52                          ;
+;     plain             ; 34                          ;
+; cycloneiii_lcell_comb ; 430                         ;
+;     arith             ; 80                          ;
+;         2 data inputs ; 80                          ;
+;     normal            ; 350                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 83                          ;
-;         4 data inputs ; 191                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 139                         ;
+;         4 data inputs ; 186                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 5.08                        ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 3.74                        ;
 +-----------------------+-----------------------------+
 
 
@@ -826,7 +988,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Fri Oct  6 19:28:56 2017
+    Info: Processing started: Sat Oct  7 00:41:45 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off relogio -c relogio
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -843,7 +1005,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file mux2.vh
     Info (12022): Found design unit 1: mux2-Behavioral File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/mux2.vhd Line: 11
     Info (12023): Found entity 1: mux2 File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/mux2.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file CountOneSec.vhd
-    Info (12022): Found design unit 1: CountOneSec-CountOneSec_behaviour File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/CountOneSec.vhd Line: 14
+    Info (12022): Found design unit 1: CountOneSec-CountOneSec_behaviour File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/CountOneSec.vhd Line: 13
     Info (12023): Found entity 1: CountOneSec File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/CountOneSec.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file FSMtopLevel.vhd
     Info (12022): Found design unit 1: FSMtopLevel-FSMtopLevel_architecture File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 20
@@ -851,15 +1013,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file FSMtopL
 Info (12021): Found 2 design units, including 1 entities, in source file conversorHex7Seg.vhd
     Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/conversorHex7Seg.vhd Line: 18
     Info (12023): Found entity 1: conversorHex7Seg File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/conversorHex7Seg.vhd Line: 5
-Warning (12019): Can't analyze file -- file edgeDetector.vhd is missing
 Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info (12022): Found design unit 1: registrador-comportamento File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/registrador.vhd Line: 14
+    Info (12022): Found design unit 1: registrador-comportamento File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/registrador.vhd Line: 15
     Info (12023): Found entity 1: registrador File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/registrador.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file ULA.vhd
     Info (12022): Found design unit 1: ULA-comportamento File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/ULA.vhd Line: 17
     Info (12023): Found entity 1: ULA File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/ULA.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file tempo.vhd
-    Info (12022): Found design unit 1: tempo-tempo_architecture File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 18
+    Info (12022): Found design unit 1: tempo-tempo_architecture File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 21
     Info (12023): Found entity 1: tempo File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file not2.vhd
     Info (12022): Found design unit 1: not2-func File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/not2.vhd Line: 11
@@ -874,7 +1035,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file demux2.
     Info (12022): Found design unit 1: demux2-Behavioral File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 11
     Info (12023): Found entity 1: demux2 File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file tempo_alarme.vhd
-    Info (12022): Found design unit 1: tempo_alarme-tempo_architecture File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 23
+    Info (12022): Found design unit 1: tempo_alarme-tempo_architecture File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 28
     Info (12023): Found entity 1: tempo_alarme File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file mux0.vhd
     Info (12022): Found design unit 1: mux0-Behavioral File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/mux0.vhd Line: 11
@@ -885,27 +1046,41 @@ Info (12021): Found 2 design units, including 1 entities, in source file xor1.vh
 Info (12021): Found 2 design units, including 1 entities, in source file and2.vhd
     Info (12022): Found design unit 1: alarm_and-Behavioral File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/and2.vhd Line: 13
     Info (12023): Found entity 1: alarm_and File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/and2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file countdownSM.vhd
+    Info (12022): Found design unit 1: countdownSM-BEHAVIOR File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/countdownSM.vhd Line: 33
+    Info (12023): Found entity 1: countdownSM File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/countdownSM.vhd Line: 22
+Info (12021): Found 2 design units, including 1 entities, in source file CountOneMin.vhd
+    Info (12022): Found design unit 1: CountOneMin-CountOneMin_behaviour File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/CountOneMin.vhd Line: 12
+    Info (12023): Found entity 1: CountOneMin File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/CountOneMin.vhd Line: 6
 Info (12127): Elaborating entity "FSMtopLevel" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at FSMtopLevel.vhd(21): object "output_dh" assigned a value but never read File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 21
-Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(89): signal "btn_set_output" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 89
-Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(93): signal "btn_set_output" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 93
-Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(112): signal "SW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 112
+Warning (10036): Verilog HDL or VHDL warning at FSMtopLevel.vhd(22): object "mux_set_out2" assigned a value but never read File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 22
+Warning (10540): VHDL Signal Declaration warning at FSMtopLevel.vhd(22): used explicit default value for signal "mux_set_out3" because signal was never assigned a value File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 22
+Warning (10036): Verilog HDL or VHDL warning at FSMtopLevel.vhd(25): object "count_compare" assigned a value but never read File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(122): signal "btn_set_output" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 122
+Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(126): signal "btn_set_output" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 126
+Warning (10492): VHDL Process Statement warning at FSMtopLevel.vhd(145): signal "SW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 145
 Info (12128): Elaborating entity "SM1" for hierarchy "SM1:SM_relogio" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 30
 Info (12128): Elaborating entity "alarmSM" for hierarchy "alarmSM:SM_alarm" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 35
-Info (12128): Elaborating entity "mux1" for hierarchy "mux1:mux_set_minuto" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 40
-Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_set" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 48
-Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 51
-Info (12128): Elaborating entity "mux0" for hierarchy "mux0:mux_alarme_mode" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 54
-Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 60
-Info (12128): Elaborating entity "registrador" for hierarchy "tempo:unidade_segundo|registrador:reg" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 22
-Info (12128): Elaborating entity "ULA" for hierarchy "tempo:unidade_segundo|ULA:ULA" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 25
-Info (12128): Elaborating entity "xor2" for hierarchy "tempo:unidade_segundo|xor2:XOR1" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 28
-Info (12128): Elaborating entity "mux2" for hierarchy "tempo:unidade_segundo|mux2:MUX1" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 30
-Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "tempo:unidade_segundo|conversorHex7Seg:display0" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 32
-Info (12128): Elaborating entity "not2" for hierarchy "tempo:unidade_segundo|not2:saida" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 34
+Info (12128): Elaborating entity "countdownSM" for hierarchy "countdownSM:SM_countdown" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 39
+Info (12128): Elaborating entity "mux1" for hierarchy "mux1:mux_set_minuto" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 43
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:btn_set" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 49
+Info (12128): Elaborating entity "CountOneSec" for hierarchy "CountOneSec:counter" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 53
+Info (12128): Elaborating entity "CountOneMin" for hierarchy "CountOneMin:counter_min" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 56
+Info (12128): Elaborating entity "mux0" for hierarchy "mux0:mux_alarme_mode" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 60
+Info (12128): Elaborating entity "tempo" for hierarchy "tempo:unidade_segundo" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 66
+Warning (10492): VHDL Process Statement warning at tempo.vhd(43): signal "dezena" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at tempo.vhd(49): signal "ULA_IN_A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 49
+Warning (10492): VHDL Process Statement warning at tempo.vhd(57): signal "ULA_IN_A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 57
+Info (12128): Elaborating entity "registrador" for hierarchy "tempo:unidade_segundo|registrador:reg" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 25
+Info (12128): Elaborating entity "ULA" for hierarchy "tempo:unidade_segundo|ULA:ULA" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 28
+Info (12128): Elaborating entity "xor2" for hierarchy "tempo:unidade_segundo|xor2:XOR1" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 31
+Info (12128): Elaborating entity "mux2" for hierarchy "tempo:unidade_segundo|mux2:MUX1" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 33
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "tempo:unidade_segundo|conversorHex7Seg:display0" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 35
+Info (12128): Elaborating entity "not2" for hierarchy "tempo:unidade_segundo|not2:saida" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo.vhd Line: 37
 Warning (10873): Using initial value X (don't care) for net "X[3..1]" at not2.vhd(7) File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/not2.vhd Line: 7
-Info (12128): Elaborating entity "tempo_alarme" for hierarchy "tempo_alarme:unidade_minuto" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 66
-Info (12128): Elaborating entity "demux2" for hierarchy "tempo_alarme:unidade_minuto|demux2:DEMUX_REG" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 41
+Info (12128): Elaborating entity "tempo_alarme" for hierarchy "tempo_alarme:unidade_minuto" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 74
+Info (12128): Elaborating entity "demux2" for hierarchy "tempo_alarme:unidade_minuto|demux2:DEMUX_REG_COUNT" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 50
 Warning (10492): VHDL Process Statement warning at demux2.vhd(15): signal "SEL" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 15
 Warning (10631): VHDL Process Statement warning at demux2.vhd(13): inferring latch(es) for signal or variable "A", which holds its previous value in one or more paths through the process File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
 Warning (10631): VHDL Process Statement warning at demux2.vhd(13): inferring latch(es) for signal or variable "B", which holds its previous value in one or more paths through the process File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
@@ -917,56 +1092,8 @@ Info (10041): Inferred latch for "A[0]" at demux2.vhd(13) File: /home/parallels/
 Info (10041): Inferred latch for "A[1]" at demux2.vhd(13) File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
 Info (10041): Inferred latch for "A[2]" at demux2.vhd(13) File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
 Info (10041): Inferred latch for "A[3]" at demux2.vhd(13) File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-Info (12128): Elaborating entity "xor1" for hierarchy "tempo_alarme:unidade_minuto|xor1:compare" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 60
-Info (12128): Elaborating entity "alarm_and" for hierarchy "alarm_and:compare_alarm" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 79
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[1] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[1] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[2] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[2] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|A[3] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_minuto|demux2:DEMUX_REG|B[3] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[1] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[1] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_minuto|demux2:DEMUX_REG|A[2] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_minuto|demux2:DEMUX_REG|B[2] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[1] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[1] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[2] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[2] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|A[3] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:unidade_hora|demux2:DEMUX_REG|B[3] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_hora|demux2:DEMUX_REG|A[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
-Warning (13012): Latch tempo_alarme:dezena_hora|demux2:DEMUX_REG|B[0] has unsafe behavior File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/demux2.vhd Line: 13
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal debounce:btn_set|output[0] File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/debounce.vhd Line: 19
+Info (12128): Elaborating entity "xor1" for hierarchy "tempo_alarme:unidade_minuto|xor1:compare_alarm" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/tempo_alarme.vhd Line: 75
+Info (12128): Elaborating entity "alarm_and" for hierarchy "alarm_and:compare_alarm" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 112
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 13
     Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 13
@@ -1002,7 +1129,7 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 16 input pin(s) that do not drive logic
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 9
     Warning (15610): No output dependent on input pin "KEY[2]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 9
     Warning (15610): No output dependent on input pin "KEY[3]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 9
@@ -1010,23 +1137,19 @@ Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[4]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[5]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[6]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
-    Warning (15610): No output dependent on input pin "SW[7]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
-    Warning (15610): No output dependent on input pin "SW[8]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
-    Warning (15610): No output dependent on input pin "SW[9]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[10]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[11]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[12]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[13]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
     Warning (15610): No output dependent on input pin "SW[14]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
-    Warning (15610): No output dependent on input pin "SW[17]" File: /home/parallels/Documents/DesignDeComputadores/FPGA-Clock/FSMtopLevel.vhd Line: 10
-Info (21057): Implemented 508 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 585 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 83 output pins
-    Info (21061): Implemented 402 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 106 warnings
-    Info: Peak virtual memory: 1017 megabytes
-    Info: Processing ended: Fri Oct  6 19:29:08 2017
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:24
+    Info (21061): Implemented 479 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 59 warnings
+    Info: Peak virtual memory: 1008 megabytes
+    Info: Processing ended: Sat Oct  7 00:41:55 2017
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 

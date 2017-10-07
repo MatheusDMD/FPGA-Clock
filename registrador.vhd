@@ -9,6 +9,7 @@ use IEEE.STD_LOGIC_1164.ALL;
            DOUT : out   std_logic_vector(larguraDados-1 downto 0) := (others => '0');
            ENABLE : in  std_logic;
            CLK,RST : in std_logic := '1');
+
  end entity;
 
  architecture comportamento of registrador is
