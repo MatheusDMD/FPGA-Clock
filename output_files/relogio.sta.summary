@@ -2,136 +2,100 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'CountOneMin:counter_min|output[0]'
-Slack : -8.983
-TNS   : -216.624
+Type  : Slow 1200mV 85C Model Setup 'alarmSM:SM_alarm|fstate.set_hora'
+Slack : -9.088
+TNS   : -212.920
 
 Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
-Slack : -3.158
-TNS   : -277.294
-
-Type  : Slow 1200mV 85C Model Setup 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : -1.116
-TNS   : -11.367
-
-Type  : Slow 1200mV 85C Model Hold 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : -0.450
-TNS   : -2.209
+Slack : -3.098
+TNS   : -184.989
 
 Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
-Slack : 0.403
+Slack : 0.225
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'CountOneMin:counter_min|output[0]'
-Slack : 0.645
+Type  : Slow 1200mV 85C Model Hold 'alarmSM:SM_alarm|fstate.set_hora'
+Slack : 0.487
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
-Slack : -0.935
-TNS   : -16.871
+Slack : -1.573
+TNS   : -20.654
 
 Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
-Slack : 0.626
+Slack : 1.116
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -203.460
+TNS   : -135.355
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : 0.356
+Slack : 0.451
 TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CountOneMin:counter_min|output[0]'
-Slack : 0.425
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Setup 'CountOneMin:counter_min|output[0]'
-Slack : -8.254
-TNS   : -199.362
-
-Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -2.836
-TNS   : -240.670
 
 Type  : Slow 1200mV 0C Model Setup 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : -1.079
-TNS   : -9.590
+Slack : -8.224
+TNS   : -196.430
 
-Type  : Slow 1200mV 0C Model Hold 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : -0.294
-TNS   : -1.330
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -2.781
+TNS   : -160.108
 
 Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.355
+Slack : 0.178
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'CountOneMin:counter_min|output[0]'
-Slack : 0.705
+Type  : Slow 1200mV 0C Model Hold 'alarmSM:SM_alarm|fstate.set_hora'
+Slack : 0.563
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : -0.770
-TNS   : -12.192
+Slack : -1.356
+TNS   : -17.216
 
 Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 0.567
+Slack : 1.015
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -203.460
+TNS   : -135.355
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : 0.430
+Slack : 0.368
 TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CountOneMin:counter_min|output[0]'
-Slack : 0.445
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'CountOneMin:counter_min|output[0]'
-Slack : -4.138
-TNS   : -96.979
-
-Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
-Slack : -1.038
-TNS   : -72.845
 
 Type  : Fast 1200mV 0C Model Setup 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : -0.216
-TNS   : -0.216
+Slack : -4.182
+TNS   : -96.734
 
-Type  : Fast 1200mV 0C Model Hold 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : -0.120
-TNS   : -0.584
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.015
+TNS   : -50.729
 
 Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
-Slack : 0.182
+Slack : 0.021
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Hold 'CountOneMin:counter_min|output[0]'
-Slack : 0.371
+Type  : Fast 1200mV 0C Model Hold 'alarmSM:SM_alarm|fstate.set_hora'
+Slack : 0.195
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
-Slack : 0.015
-TNS   : 0.000
+Slack : -0.285
+TNS   : -2.404
 
 Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
-Slack : 0.307
+Slack : 0.527
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -3.000
-TNS   : -206.517
+TNS   : -136.683
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'alarmSM:SM_alarm|fstate.set_hora'
-Slack : 0.290
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CountOneMin:counter_min|output[0]'
-Slack : 0.344
+Slack : 0.282
 TNS   : 0.000
 
 ------------------------------------------------------------

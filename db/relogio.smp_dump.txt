@@ -1,11 +1,4 @@
 
-State Machine - |FSMtopLevel|countdownSM:SM_countdown|fstate
-Name fstate.count_down fstate.set_hora fstate.set_min fstate.state1 
-fstate.state1 0 0 0 0 
-fstate.set_min 0 0 1 1 
-fstate.set_hora 0 1 0 1 
-fstate.count_down 1 0 0 1 
-
 State Machine - |FSMtopLevel|alarmSM:SM_alarm|fstate
 Name fstate.wait_alarm fstate.set_min fstate.set_hora fstate.init 
 fstate.init 0 0 0 0 

@@ -21,7 +21,7 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 	signal output_us,output_ds,output_um,output_dm,output_uh,output_dh,reg_dh,cv_uh, OUTPUT: std_logic_vector(3 downto 0) := (others=>'0');
 	signal mux_set_out1, mux_set_out2,mux_set_out3, btn_set_output,pulse_minus: std_logic_vector(3 downto 0) := (others=>'0');
 	signal control : std_logic_vector(2 downto 0);
-	signal control_alarm, control_countdown: std_logic_vector(3 downto 0);
+	signal control_alarm: std_logic_vector(3 downto 0);
 	signal mux_selector,mux_selector2,count_compare: std_logic;
 	signal alarm_um,alarm_dm,alarm_uh,alarm_dh,alarm_check: std_logic := '0';
 	begin
@@ -31,13 +31,8 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 				port map (clock => CLOCK_50, set => SW(1), h_m => SW(2), saida => control);
 				
 		--MAQUINA DE ESTADOS - ALARME
-		
 		SM_alarm : entity work.alarmSM
 		   	port map (clock => CLOCK_50, alarm_mode => SW(16), h_m => SW(17), saida=> control_alarm);
-				
-		-- MAQUINA DE ESTADOS - COUNTDOWN
-		SM_countdown : entity work.countdownSM
-		   	port map (clock => CLOCK_50, count_mode => SW(8), h_m => SW(9), saida=> control_countdown);
 				
 		--SET MINUTO
 		mux_set_minuto : entity work.mux1
@@ -45,6 +40,8 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 		--SET HORA
 		mux_set_hora : entity work.mux1
 				port map (A => output_dm, B => btn_set_output, SEL => mux_selector2, X => mux_set_out2);
+		mux_set_hora2 : entity work.mux1
+				port map (A => mux_set_out2, B => (others => '0') , SEL => control(1), X => mux_set_out3);
 		--SET
 		btn_set : entity work.debounce
 				port map (CLK => CLOCK_50, BTN => (not KEY(0)), output => btn_set_output);
@@ -52,9 +49,6 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 		--COUNT SECONDS
 		counter : entity work.CountOneSec
 				port map (speed => SW(0), clock => CLOCK_50, output => OUTPUT);
-		--COUNT DOWN MINUTES
-		counter_min : entity work.CountOneMin
-				port map ( clock => CLOCK_50, output => pulse_minus);		
 				
 		--MUX ALARME MODE
 		mux_alarme_mode : entity work.mux0
@@ -65,10 +59,10 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 		-- SEGUNDOS
 		unidade_segundo : entity work.tempo
 				port map (CLOCK_50 => CLOCK_50, B => OUTPUT, CV => "1010", V => HEX2, S => output_us, EN => control(0),
-				dezena => '0',count => (SW(7) or SW(8)), alarm => SW(16));
+				dezena => '0', alarm => SW(16));
 		dezena_segundo : entity work.tempo
 				port map (CLOCK_50 => CLOCK_50, B => output_us, CV => "0110", V => HEX3, S => output_ds,
-				dezena => '1',count => (SW(7) or SW(8)), alarm => SW(16));		
+				dezena => '1', alarm => SW(16));		
 				
 		--MINUTOS
 		unidade_minuto : entity work.tempo_alarme
@@ -76,17 +70,15 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 				--alarm_inputs
 				alarme_mode=> control_alarm(0), btn1 => btn_set_output(0), EN_A => control_alarm(2),
 				alarm_compare=> alarm_um, RST_A => control_alarm(3),
-				--countdown_inputs
-				count_compare => count_compare,pulse_minus => pulse_minus(0), en_counting => (control_countdown(0) or SW(8)),
-				RST_C => control_countdown(3),EN_C => control_countdown(2));
+				--data_about_tempo_alarme
+				d_u => '0', h_m => '0');
 		dezena_minuto : entity work.tempo_alarme
 				port map (CLOCK_50 => CLOCK_50, B => output_um, CV => "0110", V => HEX5, S => output_dm,
 				--alarm_inputs
 				alarme_mode=> control_alarm(0), btn1 => btn_set_output(0), alarm_compare => alarm_dm, 
 				RST_A => control_alarm(3),
-				--countdown_inputs
-				count_compare => count_compare,pulse_minus => pulse_minus(0), en_counting => (control_countdown(0) or SW(8)),
-				RST_C => control_countdown(3),EN_C => control_countdown(1));
+				--data_about_tempo_alarme
+				d_u => '1', h_m => '0');
 			
 				
 		--HORAS
@@ -95,18 +87,16 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 				--alarm_inputs
 				alarme_mode=> control_alarm(0), btn1 => btn_set_output(0), EN_A => control_alarm(1), 
 				alarm_compare => alarm_uh, RST_A => control_alarm(3),
-				--countdown_inputs
-				count_compare => count_compare,pulse_minus => pulse_minus(0), en_counting => (control_countdown(0) or SW(8)),
-				RST_C => control_countdown(3),EN_C => control_countdown(2));
+				--data_about_tempo_alarme
+				d_u => '0', h_m => '1');
 				
 		dezena_hora : entity work.tempo_alarme
 				port map (CLOCK_50 => CLOCK_50, B => output_uh, CV => "0011", V => HEX7, S => output_dh, Sreg => reg_dh,
 				--alarm_inputs
 				alarme_mode=>control_alarm(0), btn1 => btn_set_output(0), alarm_compare => alarm_dh,
 				RST_A => control_alarm(3),
-				--countdown_inputs
-				count_compare => count_compare,pulse_minus => pulse_minus(0), en_counting => (control_countdown(0) or SW(8)),
-				RST_C => control_countdown(3),EN_C => control_countdown(1));
+				--data_about_tempo_alarme
+				d_u => '1', h_m => '1');
 		
 		--ALARM COMPARE
 		compare_alarm : entity work.alarm_and
@@ -114,20 +104,20 @@ architecture FSMtopLevel_architecture of FSMtopLevel is
 				
 		
 		--LEDs
-		process(control)
+		process(control, btn_set_output)
 			begin
-				if(control = "100") then
+				if(control = "100" or (SW(16) = '1' and SW(17) = '0')) then
 					LEDR(17) <= '1';
 					LEDR(14) <= '0';
 					LEDG(0) <= btn_set_output(0);
-				elsif(control = "010") then
+				elsif(control = "010" or (SW(16) = '1' and SW(17) = '1')) then
 					LEDR(14) <= '1';
 					LEDR(17) <= '0';
 					LEDG(0) <= btn_set_output(0);
 				else
-					LEDR(14) <= '1';
-					LEDR(17) <= '1';
-					LEDG(0) <= '1';
+					LEDR(14) <= '0';
+					LEDR(17) <= '0';
+					LEDG(0) <= '0';
 				end if;
 			end process;
 		
